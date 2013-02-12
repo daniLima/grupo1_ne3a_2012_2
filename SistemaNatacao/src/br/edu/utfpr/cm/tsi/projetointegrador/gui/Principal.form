@@ -204,18 +204,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="485" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="255" max="-2" attributes="0"/>
+              <EmptySpace pref="303" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="352" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="186" max="-2" attributes="0"/>
+              <EmptySpace pref="218" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -224,7 +224,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/funcionario.png"/>
+          <Image iconType="3" name="/icons/peixe.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>

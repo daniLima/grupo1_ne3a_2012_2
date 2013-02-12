@@ -61,7 +61,7 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Sistema Natação");
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/peixe.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jMenuBar1.setForeground(new java.awt.Color(51, 0, 255));
@@ -175,16 +175,16 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addGap(242, 242, 242)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel1)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGap(175, 175, 175)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         pack();
