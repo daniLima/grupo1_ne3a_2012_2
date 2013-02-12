@@ -69,7 +69,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(406, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
