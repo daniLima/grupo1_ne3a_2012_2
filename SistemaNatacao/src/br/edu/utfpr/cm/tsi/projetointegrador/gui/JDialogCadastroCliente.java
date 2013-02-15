@@ -51,7 +51,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14));
         jLabel1.setText("Cadastro Cliente:");
 
         jFormattedTextField1Nome.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +103,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                                 .addComponent(jLabel2)))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabelNome))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
                             .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
@@ -140,7 +137,10 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelNome)))
                 .addContainerGap(184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

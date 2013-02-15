@@ -62,7 +62,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
 
         jButton2.setText("Cadastrar");
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 18));
         jLabel1.setText("Controle Cliente:");
 
         jLabel2.setText("Matricula:");
