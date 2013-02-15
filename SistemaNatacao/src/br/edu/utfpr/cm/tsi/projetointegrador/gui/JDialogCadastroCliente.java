@@ -17,8 +17,8 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui;
 public class JDialogCadastroCliente extends javax.swing.JDialog {
 
     /** Creates new form JDialogCadastroCliente */
-    public JDialogCadastroCliente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogCadastroCliente() {
+        this.setModal(true);
         initComponents();
     }
 
@@ -224,7 +224,7 @@ private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt)
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogCadastroCliente dialog = new JDialogCadastroCliente(new javax.swing.JFrame(), true);
+                JDialogCadastroCliente dialog = new JDialogCadastroCliente();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
