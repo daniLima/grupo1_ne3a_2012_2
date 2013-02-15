@@ -33,9 +33,13 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         CadastroBut = new javax.swing.JMenu();
         ClienteCadBot = new javax.swing.JRadioButtonMenuItem();
@@ -47,18 +51,30 @@ public class Principal extends javax.swing.JFrame {
         HorarioCadBut = new javax.swing.JRadioButtonMenuItem();
         ConsultaBut = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         ProdutoConsBut = new javax.swing.JRadioButtonMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         FuncionarioConsBut = new javax.swing.JRadioButtonMenuItem();
         HorarioBut = new javax.swing.JMenu();
         NataçãoHorBut = new javax.swing.JRadioButtonMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
         HidroHorBut1 = new javax.swing.JRadioButtonMenuItem();
         EditarBut = new javax.swing.JMenu();
         ClienteEdiBut = new javax.swing.JRadioButtonMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         ProdutoEdiBut = new javax.swing.JRadioButtonMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
         FuncionarioEdiBut1 = new javax.swing.JRadioButtonMenuItem();
+        jSeparator9 = new javax.swing.JPopupMenu.Separator();
         HorarioEdiBut2 = new javax.swing.JRadioButtonMenuItem();
         RelatorioBut = new javax.swing.JMenu();
         Ajudabut = new javax.swing.JMenu();
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Natação");
@@ -67,9 +83,22 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/DINAMICA.jpg"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usercad.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        jLabel2.setToolTipText("Cadastra Cliente");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
+        jLabel3.setToolTipText("Cadastrar Produto");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
+        jLabel4.setToolTipText("Cadastro de Funcionario");
 
         jMenuBar1.setForeground(new java.awt.Color(51, 0, 255));
         jMenuBar1.setAlignmentX(1.2F);
@@ -118,11 +147,13 @@ public class Principal extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("Cliente");
         jRadioButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         ConsultaBut.add(jRadioButtonMenuItem1);
+        ConsultaBut.add(jSeparator2);
 
         ProdutoConsBut.setSelected(true);
         ProdutoConsBut.setText("Produto");
         ProdutoConsBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
         ConsultaBut.add(ProdutoConsBut);
+        ConsultaBut.add(jSeparator3);
 
         FuncionarioConsBut.setSelected(true);
         FuncionarioConsBut.setText("Funcionario");
@@ -137,6 +168,7 @@ public class Principal extends javax.swing.JFrame {
         NataçãoHorBut.setText("Natação");
         NataçãoHorBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/natação.png"))); // NOI18N
         HorarioBut.add(NataçãoHorBut);
+        HorarioBut.add(jSeparator6);
 
         HidroHorBut1.setSelected(true);
         HidroHorBut1.setText("Hidroginastica");
@@ -151,16 +183,19 @@ public class Principal extends javax.swing.JFrame {
         ClienteEdiBut.setText("Cliente");
         ClienteEdiBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         EditarBut.add(ClienteEdiBut);
+        EditarBut.add(jSeparator7);
 
         ProdutoEdiBut.setSelected(true);
         ProdutoEdiBut.setText("Produto");
         ProdutoEdiBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
         EditarBut.add(ProdutoEdiBut);
+        EditarBut.add(jSeparator8);
 
         FuncionarioEdiBut1.setSelected(true);
         FuncionarioEdiBut1.setText("Funcionario");
         FuncionarioEdiBut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
         EditarBut.add(FuncionarioEdiBut1);
+        EditarBut.add(jSeparator9);
 
         HorarioEdiBut2.setSelected(true);
         HorarioEdiBut2.setText("Horario");
@@ -183,26 +218,28 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(721, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addGap(31, 31, 31))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                    .addComponent(jLabel2))
+                .addContainerGap())
         );
 
         pack();
@@ -214,6 +251,13 @@ private void ClienteCadBotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIR
 private void ClienteCadBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteCadBotActionPerformed
     new JDialogClienteMenu().setVisible(true);
 }//GEN-LAST:event_ClienteCadBotActionPerformed
+
+private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+
+}//GEN-LAST:event_jLabel2MouseEntered
+
+private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+}//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,10 +316,20 @@ private void ClienteCadBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JPopupMenu.Separator jSeparator9;
     // End of variables declaration//GEN-END:variables
 }
