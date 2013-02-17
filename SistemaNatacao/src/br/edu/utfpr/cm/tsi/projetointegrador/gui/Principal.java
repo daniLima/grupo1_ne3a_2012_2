@@ -110,6 +110,11 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton2);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
@@ -202,6 +207,11 @@ public class Principal extends javax.swing.JFrame {
         ProdutoCadBut.setSelected(true);
         ProdutoCadBut.setText("Produto");
         ProdutoCadBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
+        ProdutoCadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProdutoCadButActionPerformed(evt);
+            }
+        });
         CadastroBut.add(ProdutoCadBut);
         CadastroBut.add(jSeparator5);
 
@@ -230,18 +240,33 @@ public class Principal extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("Cliente");
         jRadioButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
         ConsultaBut.add(jRadioButtonMenuItem1);
         ConsultaBut.add(jSeparator2);
 
         ProdutoConsBut.setSelected(true);
         ProdutoConsBut.setText("Produto");
         ProdutoConsBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
+        ProdutoConsBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProdutoConsButActionPerformed(evt);
+            }
+        });
         ConsultaBut.add(ProdutoConsBut);
         ConsultaBut.add(jSeparator3);
 
         FuncionarioConsBut.setSelected(true);
         FuncionarioConsBut.setText("Funcionario");
         FuncionarioConsBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
+        FuncionarioConsBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioConsButActionPerformed(evt);
+            }
+        });
         ConsultaBut.add(FuncionarioConsBut);
 
         jMenuBar1.add(ConsultaBut);
@@ -338,7 +363,7 @@ private void ClienteCadBotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIR
 }//GEN-LAST:event_ClienteCadBotMouseClicked
 
 private void ClienteCadBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteCadBotActionPerformed
-    new JDialogClienteMenu().setVisible(true);
+    new JDialogCadastroCliente().setVisible(true);
 }//GEN-LAST:event_ClienteCadBotActionPerformed
 
 private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -364,6 +389,31 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     new JDialogCadastroFuncionario().setVisible(true);
     // TODO add your handling code here:
 }//GEN-LAST:event_jButton3ActionPerformed
+
+private void ProdutoCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutoCadButActionPerformed
+    new JDialogCadastroProduto().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_ProdutoCadButActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    new JDialogCadastroProduto().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton2ActionPerformed
+
+private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+    new JDialogClienteMenu().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+
+private void ProdutoConsButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutoConsButActionPerformed
+    new JDialogProdutoMenu().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_ProdutoConsButActionPerformed
+
+private void FuncionarioConsButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioConsButActionPerformed
+    new JDialogFuncionarioMenu().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_FuncionarioConsButActionPerformed
 
     /**
      * @param args the command line arguments
