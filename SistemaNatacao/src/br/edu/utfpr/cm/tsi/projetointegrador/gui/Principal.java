@@ -231,6 +231,11 @@ public class Principal extends javax.swing.JFrame {
         HorarioCadBut.setSelected(true);
         HorarioCadBut.setText("Horario");
         HorarioCadBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnome_fish.jpg"))); // NOI18N
+        HorarioCadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HorarioCadButActionPerformed(evt);
+            }
+        });
         CadastroBut.add(HorarioCadBut);
 
         jMenuBar1.add(CadastroBut);
@@ -414,6 +419,11 @@ private void FuncionarioConsButActionPerformed(java.awt.event.ActionEvent evt) {
     new JDialogFuncionarioMenu().setVisible(true);
     // TODO add your handling code here:
 }//GEN-LAST:event_FuncionarioConsButActionPerformed
+
+private void HorarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorarioCadButActionPerformed
+    new JDialogHorarioMenu().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_HorarioCadButActionPerformed
 
     /**
      * @param args the command line arguments

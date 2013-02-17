@@ -97,6 +97,9 @@
                   <Image iconType="3" name="/icons/gnome_fish.jpg"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HorarioCadButActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
