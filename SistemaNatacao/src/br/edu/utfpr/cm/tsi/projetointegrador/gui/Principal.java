@@ -69,14 +69,6 @@ public class Principal extends javax.swing.JFrame {
         NataçãoHorBut = new javax.swing.JRadioButtonMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         HidroHorBut1 = new javax.swing.JRadioButtonMenuItem();
-        EditarBut = new javax.swing.JMenu();
-        ClienteEdiBut = new javax.swing.JRadioButtonMenuItem();
-        jSeparator7 = new javax.swing.JPopupMenu.Separator();
-        ProdutoEdiBut = new javax.swing.JRadioButtonMenuItem();
-        jSeparator8 = new javax.swing.JPopupMenu.Separator();
-        FuncionarioEdiBut1 = new javax.swing.JRadioButtonMenuItem();
-        jSeparator9 = new javax.swing.JPopupMenu.Separator();
-        HorarioEdiBut2 = new javax.swing.JRadioButtonMenuItem();
         RelatorioBut = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -102,24 +94,38 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        jButton1.setToolTipText("Cadastrar Cliente");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton1);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
+        jButton2.setToolTipText("Cadastrar Produto");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
+        jButton3.setToolTipText("Cadastrar Funcionario");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton3);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/duvida.png"))); // NOI18N
+        jButton4.setToolTipText("Contato");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -203,6 +209,11 @@ public class Principal extends javax.swing.JFrame {
         FuncionarioCadBut.setSelected(true);
         FuncionarioCadBut.setText("Funcionario");
         FuncionarioCadBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
+        FuncionarioCadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioCadButActionPerformed(evt);
+            }
+        });
         CadastroBut.add(FuncionarioCadBut);
         CadastroBut.add(jSeparator4);
 
@@ -249,33 +260,6 @@ public class Principal extends javax.swing.JFrame {
         HorarioBut.add(HidroHorBut1);
 
         jMenuBar1.add(HorarioBut);
-
-        EditarBut.setText("Editar");
-
-        ClienteEdiBut.setSelected(true);
-        ClienteEdiBut.setText("Cliente");
-        ClienteEdiBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
-        EditarBut.add(ClienteEdiBut);
-        EditarBut.add(jSeparator7);
-
-        ProdutoEdiBut.setSelected(true);
-        ProdutoEdiBut.setText("Produto");
-        ProdutoEdiBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
-        EditarBut.add(ProdutoEdiBut);
-        EditarBut.add(jSeparator8);
-
-        FuncionarioEdiBut1.setSelected(true);
-        FuncionarioEdiBut1.setText("Funcionario");
-        FuncionarioEdiBut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
-        EditarBut.add(FuncionarioEdiBut1);
-        EditarBut.add(jSeparator9);
-
-        HorarioEdiBut2.setSelected(true);
-        HorarioEdiBut2.setText("Horario");
-        HorarioEdiBut2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnome_fish.jpg"))); // NOI18N
-        EditarBut.add(HorarioEdiBut2);
-
-        jMenuBar1.add(EditarBut);
 
         RelatorioBut.setText("Relatorios");
 
@@ -366,6 +350,21 @@ private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     new JDialogAjuda().setVisible(true);
 }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+private void FuncionarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioCadButActionPerformed
+    new JDialogCadastroFuncionario().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_FuncionarioCadButActionPerformed
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    new JDialogCadastroCliente().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton1ActionPerformed
+
+private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    new JDialogCadastroFuncionario().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -405,20 +404,15 @@ private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu Ajudabut;
     private javax.swing.JMenu CadastroBut;
     private javax.swing.JRadioButtonMenuItem ClienteCadBot;
-    private javax.swing.JRadioButtonMenuItem ClienteEdiBut;
     private javax.swing.JMenu ConsultaBut;
-    private javax.swing.JMenu EditarBut;
     private javax.swing.JRadioButtonMenuItem FuncionarioCadBut;
     private javax.swing.JRadioButtonMenuItem FuncionarioConsBut;
-    private javax.swing.JRadioButtonMenuItem FuncionarioEdiBut1;
     private javax.swing.JRadioButtonMenuItem HidroHorBut1;
     private javax.swing.JMenu HorarioBut;
     private javax.swing.JRadioButtonMenuItem HorarioCadBut;
-    private javax.swing.JRadioButtonMenuItem HorarioEdiBut2;
     private javax.swing.JRadioButtonMenuItem NataçãoHorBut;
     private javax.swing.JRadioButtonMenuItem ProdutoCadBut;
     private javax.swing.JRadioButtonMenuItem ProdutoConsBut;
-    private javax.swing.JRadioButtonMenuItem ProdutoEdiBut;
     private javax.swing.JMenu RelatorioBut;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -448,9 +442,6 @@ private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
-    private javax.swing.JPopupMenu.Separator jSeparator7;
-    private javax.swing.JPopupMenu.Separator jSeparator8;
-    private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

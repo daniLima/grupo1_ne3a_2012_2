@@ -17,8 +17,8 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui;
 public class JDialogCadastroFuncionario extends javax.swing.JDialog {
 
     /** Creates new form JDialogCadastroProduto */
-    public JDialogCadastroFuncionario(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogCadastroFuncionario() {
+      
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -51,6 +51,8 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
         jFormattedTextField6 = new javax.swing.JFormattedTextField();
         jFormattedTextField7 = new javax.swing.JFormattedTextField();
         jFormattedTextField8 = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -103,6 +105,15 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+
+        jButton1.setText("Confirmar");
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,7 +172,12 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
                         .addComponent(jLabel9))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFormattedTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormattedTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)))
                 .addContainerGap(184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,7 +220,11 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFormattedTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,6 +237,11 @@ private void jFormattedTextField1NomeActionPerformed(java.awt.event.ActionEvent 
 private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    dispose();
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +274,7 @@ private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt)
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogCadastroFuncionario dialog = new JDialogCadastroFuncionario(new javax.swing.JFrame(), true);
+                JDialogCadastroFuncionario dialog = new JDialogCadastroFuncionario();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
@@ -262,6 +287,8 @@ private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt)
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField1Nome;
     private javax.swing.JFormattedTextField jFormattedTextField2;
