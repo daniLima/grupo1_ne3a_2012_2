@@ -242,6 +242,7 @@ public class Principal extends javax.swing.JFrame {
 
         ConsultaBut.setText("Consulta");
 
+        jRadioButtonMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("Cliente");
         jRadioButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
@@ -253,6 +254,7 @@ public class Principal extends javax.swing.JFrame {
         ConsultaBut.add(jRadioButtonMenuItem1);
         ConsultaBut.add(jSeparator2);
 
+        ProdutoConsBut.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
         ProdutoConsBut.setSelected(true);
         ProdutoConsBut.setText("Produto");
         ProdutoConsBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produto.png"))); // NOI18N
@@ -264,6 +266,7 @@ public class Principal extends javax.swing.JFrame {
         ConsultaBut.add(ProdutoConsBut);
         ConsultaBut.add(jSeparator3);
 
+        FuncionarioConsBut.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK));
         FuncionarioConsBut.setSelected(true);
         FuncionarioConsBut.setText("Funcionario");
         FuncionarioConsBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/funcionario.png"))); // NOI18N
@@ -314,7 +317,7 @@ public class Principal extends javax.swing.JFrame {
         Ajudabut.setText("Ajuda");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/suporte.png"))); // NOI18N
-        jMenuItem1.setText("Contato");
+        jMenuItem1.setText("Sobre");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
