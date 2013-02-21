@@ -10,15 +10,19 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Douglas Santiago
  */
 public class JDialogVisualizarProduto extends javax.swing.JDialog {
+   JDialogCadastroProduto cd = new JDialogCadastroProduto();
 
     /** Creates new form JDialogVisualizarProduto */
-    public JDialogVisualizarProduto(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogVisualizarProduto() {
+        setLocation(250, 100);
+        valor();
         initComponents();
     }
 
@@ -34,19 +38,19 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        DescricaoText = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField1Nome = new javax.swing.JFormattedTextField();
+        NomeText = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
+        ObesrvacaoText = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        QuantidadeText = new javax.swing.JFormattedTextField();
+        jButtonExcluir = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
+        jTextFieldCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,9 +61,10 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18));
         jLabel3.setText("Visualizar Produto:");
 
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        DescricaoText.setEditable(false);
+        DescricaoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                DescricaoTextActionPerformed(evt);
             }
         });
 
@@ -69,28 +74,44 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
 
         jLabel5.setText("Descrição");
 
-        jFormattedTextField1Nome.addActionListener(new java.awt.event.ActionListener() {
+        NomeText.setEditable(false);
+        NomeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1NomeActionPerformed(evt);
+                NomeTextActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ObesrvacaoText.setColumns(20);
+        ObesrvacaoText.setEditable(false);
+        ObesrvacaoText.setRows(5);
+        jScrollPane1.setViewportView(ObesrvacaoText);
 
         jLabel4.setText("Quantidade");
 
-        jButton4.setText("Excluir");
+        QuantidadeText.setEditable(false);
 
-        jButton5.setText("Cancelar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar");
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+
+        jButtonEditar.setText("Editar");
+
+        jTextFieldCodigo.setEditable(false);
+        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,27 +125,27 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNome))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonEditar)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButtonExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -135,11 +156,11 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                             .addGap(469, 469, 469))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DescricaoText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4))
                             .addGap(285, 285, 285))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jFormattedTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(QuantidadeText, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                             .addGap(551, 551, 551))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel7)
@@ -153,32 +174,32 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel3))
-                .addGap(36, 36, 36)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
+                .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButtonEditar)
+                    .addComponent(jButtonExcluir)
+                    .addComponent(jButtonCancelar))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(69, 69, 69)
                     .addComponent(jLabel2)
                     .addGap(110, 110, 110)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DescricaoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel4)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(QuantidadeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(jLabel7)
                     .addContainerGap(134, Short.MAX_VALUE)))
@@ -187,23 +208,36 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+private void DescricaoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescricaoTextActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextField4ActionPerformed
+}//GEN-LAST:event_DescricaoTextActionPerformed
 
-private void jFormattedTextField1NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1NomeActionPerformed
+private void NomeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeTextActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextField1NomeActionPerformed
+}//GEN-LAST:event_NomeTextActionPerformed
 
-private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
     dispose();
     // TODO add your handling code here:
-}//GEN-LAST:event_jButton5ActionPerformed
+}//GEN-LAST:event_jButtonCancelarActionPerformed
+
+private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+    JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+    
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButtonExcluirActionPerformed
+
+private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+    
+}//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -231,7 +265,7 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogVisualizarProduto dialog = new JDialogVisualizarProduto(new javax.swing.JFrame(), true);
+                JDialogVisualizarProduto dialog = new JDialogVisualizarProduto();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
@@ -244,12 +278,13 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JFormattedTextField jFormattedTextField1Nome;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
+    private javax.swing.JFormattedTextField DescricaoText;
+    private javax.swing.JFormattedTextField NomeText;
+    private javax.swing.JTextArea ObesrvacaoText;
+    private javax.swing.JFormattedTextField QuantidadeText;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -258,7 +293,11 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldCodigo;
     // End of variables declaration//GEN-END:variables
+
+    private void valor(){
+     
+    }
+
 }

@@ -10,11 +10,21 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Douglas Santiago
  */
 public class JDialogProdutoMenu extends javax.swing.JDialog {
+    static String codigo;
+    private static String nome;
+    private static String descricao;
+    private static String quantidade;
+    private static String observacao;
+    private Conexao conexao = new Conexao();
+    
 
     /** Creates new form JDialogCadastrarProduto */
     public JDialogProdutoMenu() {
@@ -33,17 +43,16 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        CodigoText = new javax.swing.JTextField();
+        QuantidadeText = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jFormattedTextField1Nome = new javax.swing.JFormattedTextField();
+        ObsText = new javax.swing.JTextArea();
+        NomeText = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        DescricaoText = new javax.swing.JFormattedTextField();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -56,17 +65,27 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
 
         jLabel2.setText("Codigo:");
 
-        jButton3.setText("Buscar");
+        CodigoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodigoTextActionPerformed(evt);
+            }
+        });
+
+        QuantidadeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuantidadeTextActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Quantidade");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ObsText.setColumns(20);
+        ObsText.setRows(5);
+        jScrollPane1.setViewportView(ObsText);
 
-        jFormattedTextField1Nome.addActionListener(new java.awt.event.ActionListener() {
+        NomeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1NomeActionPerformed(evt);
+                NomeTextActionPerformed(evt);
             }
         });
 
@@ -76,15 +95,25 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
 
         jLabel7.setText("Observações:");
 
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        DescricaoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                DescricaoTextActionPerformed(evt);
             }
         });
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Excluir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cancelar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -104,34 +133,31 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
                         .addComponent(jLabel10)
                         .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)))
-                        .addContainerGap(452, Short.MAX_VALUE))
+                            .addComponent(CodigoText, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(535, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabelNome)
-                            .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DescricaoText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(292, 292, 292))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                        .addComponent(QuantidadeText, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                         .addGap(565, 565, 565))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addContainerGap(539, Short.MAX_VALUE))
+                        .addContainerGap(547, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(100, Short.MAX_VALUE))))
+                        .addContainerGap(108, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jButton2)
@@ -139,7 +165,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,21 +177,19 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                .addComponent(CodigoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DescricaoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(QuantidadeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
@@ -175,24 +199,48 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
                     .addComponent(jButton2)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jFormattedTextField1NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1NomeActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextField1NomeActionPerformed
+private void NomeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeTextActionPerformed
+    nome = NomeText.getText();
+    // TODO add your handling code here:
+}//GEN-LAST:event_NomeTextActionPerformed
 
-private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextField4ActionPerformed
+private void DescricaoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescricaoTextActionPerformed
+    descricao = DescricaoText.getText();
+    // TODO add your handling code here:
+}//GEN-LAST:event_DescricaoTextActionPerformed
 
 private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     dispose();
     // TODO add your handling code here:
 }//GEN-LAST:event_jButton5ActionPerformed
+
+private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    int n = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir");
+    if(n==0){
+    dispose();
+    }
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton4ActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButton2ActionPerformed
+
+private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoTextActionPerformed
+    codigo = CodigoText.getText();
+    // TODO add your handling code here:
+}//GEN-LAST:event_CodigoTextActionPerformed
+
+private void QuantidadeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantidadeTextActionPerformed
+    quantidade = QuantidadeText.getText();
+    // TODO add your handling code here:
+}//GEN-LAST:event_QuantidadeTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,13 +286,14 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CodigoText;
+    private javax.swing.JFormattedTextField DescricaoText;
+    private javax.swing.JFormattedTextField NomeText;
+    private javax.swing.JTextArea ObsText;
+    private javax.swing.JFormattedTextField QuantidadeText;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JFormattedTextField jFormattedTextField1Nome;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -253,7 +302,16 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void AlterCliente(){
+        Connection con = conexao.getConnection();
+    
+        
+    
+    
+    }
+
+
+
 }

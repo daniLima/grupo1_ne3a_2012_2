@@ -6,9 +6,12 @@
 /*
  * Principal.java
  *
- * Created on 08/02/2013, 19:25:10
+ * 
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui;
+
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogProdutoMenu;
 
 
 
@@ -50,6 +53,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jToolBar2 = new javax.swing.JToolBar();
+        jLabel7 = new javax.swing.JLabel();
+        jLabelStatus = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         CadastroBut = new javax.swing.JMenu();
         ClienteCadBot = new javax.swing.JRadioButtonMenuItem();
@@ -98,6 +104,14 @@ public class Principal extends javax.swing.JFrame {
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -110,6 +124,14 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -122,6 +144,14 @@ public class Principal extends javax.swing.JFrame {
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -134,6 +164,14 @@ public class Principal extends javax.swing.JFrame {
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton4MouseExited(evt);
+            }
+        });
         jToolBar1.add(jButton4);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 48));
@@ -180,11 +218,28 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jToolBar2.setForeground(new java.awt.Color(102, 255, 51));
+        jToolBar2.setRollover(true);
+
+        jLabel7.setText("Status:");
+        jToolBar2.add(jLabel7);
+
+        jLabelStatus.setText("Esperando");
+        jToolBar2.add(jLabelStatus);
+
         jMenuBar1.setForeground(new java.awt.Color(51, 0, 255));
         jMenuBar1.setAlignmentX(1.2F);
 
         CadastroBut.setText("Cadastro");
-        CadastroBut.setToolTipText("");
+        CadastroBut.setToolTipText("Cadastro");
+        CadastroBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CadastroButMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CadastroButMouseExited(evt);
+            }
+        });
 
         ClienteCadBot.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         ClienteCadBot.setSelected(true);
@@ -241,6 +296,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(CadastroBut);
 
         ConsultaBut.setText("Consulta");
+        ConsultaBut.setToolTipText("Consulta");
+        ConsultaBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ConsultaButMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ConsultaButMouseExited(evt);
+            }
+        });
 
         jRadioButtonMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jRadioButtonMenuItem1.setSelected(true);
@@ -280,6 +344,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(ConsultaBut);
 
         HorarioBut.setText("Horarios");
+        HorarioBut.setToolTipText("Horarios");
+        HorarioBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HorarioButMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HorarioButMouseExited(evt);
+            }
+        });
 
         NataçãoHorBut.setSelected(true);
         NataçãoHorBut.setText("Natação");
@@ -295,6 +368,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(HorarioBut);
 
         RelatorioBut.setText("Relatorios");
+        RelatorioBut.setToolTipText("Relatorios");
+        RelatorioBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RelatorioButMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RelatorioButMouseExited(evt);
+            }
+        });
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         jMenuItem3.setText("Cliente");
@@ -315,6 +397,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(RelatorioBut);
 
         Ajudabut.setText("Ajuda");
+        Ajudabut.setToolTipText("Ajuda");
+        Ajudabut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AjudabutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AjudabutMouseExited(evt);
+            }
+        });
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/suporte.png"))); // NOI18N
         jMenuItem1.setText("Sobre");
@@ -344,23 +435,27 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(546, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(226, 226, 226)
                 .addComponent(jLabel1)
                 .addContainerGap(226, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -371,6 +466,7 @@ private void ClienteCadBotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIR
 }//GEN-LAST:event_ClienteCadBotMouseClicked
 
 private void ClienteCadBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteCadBotActionPerformed
+
     new JDialogCadastroCliente().setVisible(true);
 }//GEN-LAST:event_ClienteCadBotActionPerformed
 
@@ -427,6 +523,96 @@ private void HorarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     new JDialogHorarioMenu().setVisible(true);
     // TODO add your handling code here:
 }//GEN-LAST:event_HorarioCadButActionPerformed
+
+private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+    jLabelStatus.setText((jButton1.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton1MouseEntered
+
+private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton1MouseExited
+
+private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton2MouseExited
+
+private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton3MouseExited
+
+private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton4MouseExited
+
+private void CadastroButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CadastroButMouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_CadastroButMouseExited
+
+private void ConsultaButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultaButMouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_ConsultaButMouseExited
+
+private void HorarioButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorarioButMouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_HorarioButMouseExited
+
+private void RelatorioButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatorioButMouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_RelatorioButMouseExited
+
+private void AjudabutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjudabutMouseExited
+    jLabelStatus.setText(" Esperando");
+    // TODO add your handling code here:
+}//GEN-LAST:event_AjudabutMouseExited
+
+private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+     jLabelStatus.setText((jButton2.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton2MouseEntered
+
+private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+     jLabelStatus.setText((jButton3.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton3MouseEntered
+
+private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+     jLabelStatus.setText((jButton4.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton4MouseEntered
+
+private void CadastroButMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CadastroButMouseEntered
+     jLabelStatus.setText(CadastroBut.getToolTipText());
+    // TODO add your handling code here:
+}//GEN-LAST:event_CadastroButMouseEntered
+
+private void ConsultaButMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultaButMouseEntered
+    jLabelStatus.setText((ConsultaBut.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_ConsultaButMouseEntered
+
+private void HorarioButMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorarioButMouseEntered
+    jLabelStatus.setText((HorarioBut.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_HorarioButMouseEntered
+
+private void RelatorioButMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatorioButMouseEntered
+    jLabelStatus.setText((RelatorioBut.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_RelatorioButMouseEntered
+
+private void AjudabutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjudabutMouseEntered
+    jLabelStatus.setText((Ajudabut.getToolTipText()));
+    // TODO add your handling code here:
+}//GEN-LAST:event_AjudabutMouseEntered
 
     /**
      * @param args the command line arguments
@@ -487,6 +673,8 @@ private void HorarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelStatus;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -506,5 +694,6 @@ private void HorarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
 }
