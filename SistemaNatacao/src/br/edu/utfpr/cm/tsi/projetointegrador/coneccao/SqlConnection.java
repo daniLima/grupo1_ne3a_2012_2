@@ -6,7 +6,6 @@ package br.edu.utfpr.cm.tsi.projetointegrador.coneccao;
 
 
 
-import com.mysql.jdbc.jdbc2.optional.MysqlXAConnection;
 import java.awt.JobAttributes;
 import java.sql.SQLException;
 import java.sql.Connection;
