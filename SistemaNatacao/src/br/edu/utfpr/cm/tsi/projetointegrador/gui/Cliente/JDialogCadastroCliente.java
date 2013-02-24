@@ -10,6 +10,14 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogVisualizarProduto;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Daniele
@@ -117,10 +125,22 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         Confirmar.setText("Confirmar:");
         getContentPane().add(Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        rConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rConfirmarActionPerformed(evt);
+            }
+        });
         getContentPane().add(rConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, -1));
 
         Cancelar.setText("Cancelar:");
         getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
+
+        rCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(rCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 80, -1));
 
         pack();
@@ -137,6 +157,23 @@ private void rCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
 private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEmailActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_rEmailActionPerformed
+
+private void rConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rConfirmarActionPerformed
+// TODO add your handling code here:
+    try {
+            addCliente();
+        } catch (Exception ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    JOptionPane.showMessageDialog(rootPane, "Produto: " + NomeText.getText()+ " Cadastrado");
+    dispose();
+    new JDialogVisualizarProduto().setVisible(true);
+}//GEN-LAST:event_rConfirmarActionPerformed
+
+private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCancelarActionPerformed
+   JOptionPane.showMessageDialog(rootPane, "Cancelado");
+                   dispose();
+}//GEN-LAST:event_rCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,4 +200,48 @@ private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private javax.swing.JTextField rNome;
     private javax.swing.JTextField rTelefone;
     // End of variables declaration//GEN-END:variables
+
+ private void addCliente() throws Exception{
+    
+        Connection con = conexao.getConnection();
+   
+ try {
+            String sql = "INSERT INTO cliente(nome,cpf,endereco,bairro,telefone,cidade,email ) Values (?, ?, ?, ?, ?,?,?)";
+            
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,   
+            pst.setString(2, NomeText.getText());  
+            pst.setString(3, DescricaoText.getName());
+            pst.setString(4, QuantidadeText.getText());  
+            pst.setString(5, ObservacoesText.getText()); 
+            pst.execute();
+            
+            con.commit();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        //deixar os campos vazio...
+//        CodigoText.setText(null);
+//        NomeText.setText(null);
+//        DescricaoText.setText(null);
+//        QuantidadeText.setText(null);
+//        ObservacoesText.setText(null);
+    }
+
 }
+
+
+    
+    
+    
+    
+    
+
+
+
+
+
+
