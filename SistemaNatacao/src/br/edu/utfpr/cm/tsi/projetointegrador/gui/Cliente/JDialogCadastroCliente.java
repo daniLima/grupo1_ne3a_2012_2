@@ -163,11 +163,11 @@ private void rConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     try {
             addCliente();
         } catch (Exception ex) {
-            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-    JOptionPane.showMessageDialog(rootPane, "Produto: " + NomeText.getText()+ " Cadastrado");
+    JOptionPane.showMessageDialog(rootPane, "Cliente: " + rNome.getText()+ " Cadastrado");
     dispose();
-    new JDialogVisualizarProduto().setVisible(true);
+    new JDialogVisualizarCliente().setVisible(true);
 }//GEN-LAST:event_rConfirmarActionPerformed
 
 private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCancelarActionPerformed
