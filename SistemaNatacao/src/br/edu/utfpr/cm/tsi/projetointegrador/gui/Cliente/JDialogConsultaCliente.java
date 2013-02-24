@@ -36,6 +36,10 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         rNome = new javax.swing.JTextField();
         Pesquisar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
+        ok = new javax.swing.JButton();
+        Fechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Consulta Clientes"); // NOI18N
@@ -53,8 +57,38 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         Pesquisar.setText("Pesquisar");
         getContentPane().add(Pesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
 
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nome", "Endereco", "Telefone"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabela);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 470, 300));
+
+        ok.setText("OK");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 80, -1));
+
+        Fechar.setText("Fechar");
+        getContentPane().add(Fechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,9 +135,13 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConsultaClientes;
+    private javax.swing.JButton Fechar;
     private javax.swing.JLabel Nome;
     private javax.swing.JButton Pesquisar;
+    private javax.swing.JTable Tabela;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton ok;
     private javax.swing.JTextField rNome;
     // End of variables declaration//GEN-END:variables
 }
