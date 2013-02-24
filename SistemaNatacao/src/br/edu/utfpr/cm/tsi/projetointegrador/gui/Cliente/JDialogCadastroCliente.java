@@ -18,8 +18,19 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     
     private Conexao conexao=new Conexao();
     
-    
+    public JDialogCadastroCliente() {
+         initComponents ();
+         setLocationRelativeTo(null);
+         
+    }
 
+    
+    
+    
+    
+    
+    
+    
   //  /** Creates new form JDialogCadastroCliente */
   
     /** This method is called from within the constructor to
@@ -32,11 +43,21 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     private void initComponents() {
 
         Cadastro_cliente = new javax.swing.JLabel();
+        Nome = new javax.swing.JLabel();
+        rNome = new javax.swing.JTextField();
+        Endereco = new javax.swing.JLabel();
+        rEndereco = new javax.swing.JTextField();
+        Bairro = new javax.swing.JLabel();
+        rBairro = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18));
         Cadastro_cliente.setText("Cadastro Cliente:");
+
+        Nome.setText("Nome:");
+
+        Endereco.setText("Endereço:");
+
+        Bairro.setText("Bairro:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -44,15 +65,37 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Cadastro_cliente)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Cadastro_cliente)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(rNome, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(Nome)
+                            .addComponent(Endereco)
+                            .addComponent(rEndereco)
+                            .addComponent(Bairro)
+                            .addComponent(rBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Cadastro_cliente)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Nome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(Endereco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Bairro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
@@ -63,6 +106,12 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bairro;
     private javax.swing.JLabel Cadastro_cliente;
+    private javax.swing.JLabel Endereco;
+    private javax.swing.JLabel Nome;
+    private javax.swing.JTextField rBairro;
+    private javax.swing.JTextField rEndereco;
+    private javax.swing.JTextField rNome;
     // End of variables declaration//GEN-END:variables
 }
