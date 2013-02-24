@@ -57,6 +57,10 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         rCPF = new javax.swing.JTextField();
         email = new javax.swing.JLabel();
         rEmail = new javax.swing.JTextField();
+        Confirmar = new javax.swing.JLabel();
+        rConfirmar = new javax.swing.JTextField();
+        Cancelar = new javax.swing.JLabel();
+        rCancelar = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,6 +115,14 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         });
         getContentPane().add(rEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 90, -1));
 
+        Confirmar.setText("Confirmar:");
+        getContentPane().add(Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        getContentPane().add(rConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, -1));
+
+        Cancelar.setText("Cancelar:");
+        getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
+        getContentPane().add(rCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 80, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,14 +146,18 @@ private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private javax.swing.JLabel Bairro;
     private javax.swing.JLabel CPF;
     private javax.swing.JLabel Cadastro_cliente;
+    private javax.swing.JLabel Cancelar;
     private javax.swing.JLabel Cidade;
+    private javax.swing.JLabel Confirmar;
     private javax.swing.JLabel Endereco;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField rBairro;
     private javax.swing.JTextField rCPF;
+    private javax.swing.JTextField rCancelar;
     private javax.swing.JTextField rCidade;
+    private javax.swing.JTextField rConfirmar;
     private javax.swing.JTextField rEmail;
     private javax.swing.JTextField rEndereco;
     private javax.swing.JTextField rNome;
