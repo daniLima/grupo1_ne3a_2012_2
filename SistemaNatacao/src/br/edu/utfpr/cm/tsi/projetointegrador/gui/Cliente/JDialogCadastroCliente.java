@@ -210,11 +210,13 @@ private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,   
-            pst.setString(2, NomeText.getText());  
-            pst.setString(3, DescricaoText.getName());
-            pst.setString(4, QuantidadeText.getText());  
-            pst.setString(5, ObservacoesText.getText()); 
+            pst.setString(1, rNome.getText());  
+            pst.setString(2, rCPF.getText());
+            pst.setString(3, rEndereco.getText());
+            pst.setString(4, rBairro.getText());
+            pst.setString(5, rTelefone.getText());
+            pst.setString(6, rCidade.getText());
+            pst.setString(7,rEmail.getText());
             pst.execute();
             
             con.commit();
@@ -223,12 +225,7 @@ private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
             
         }
-        //deixar os campos vazio...
-//        CodigoText.setText(null);
-//        NomeText.setText(null);
-//        DescricaoText.setText(null);
-//        QuantidadeText.setText(null);
-//        ObservacoesText.setText(null);
+        
     }
 
 }
