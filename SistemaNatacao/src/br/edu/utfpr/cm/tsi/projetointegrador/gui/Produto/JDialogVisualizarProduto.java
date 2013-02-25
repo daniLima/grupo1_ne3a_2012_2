@@ -10,6 +10,10 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.Conexao;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,12 +21,12 @@ import javax.swing.JOptionPane;
  * @author Douglas Santiago
  */
 public class JDialogVisualizarProduto extends javax.swing.JDialog {
-   JDialogCadastroProduto cd = new JDialogCadastroProduto();
-
+   Conexao conexao = new Conexao();
+   
     /** Creates new form JDialogVisualizarProduto */
     public JDialogVisualizarProduto() {
         setLocation(250, 100);
-        valor();
+        
         initComponents();
     }
 
@@ -44,13 +48,13 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         NomeText = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ObesrvacaoText = new javax.swing.JTextArea();
+        ObservacaoText = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         QuantidadeText = new javax.swing.JFormattedTextField();
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
-        jTextFieldCodigo = new javax.swing.JTextField();
+        CodigoText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,10 +85,10 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
             }
         });
 
-        ObesrvacaoText.setColumns(20);
-        ObesrvacaoText.setEditable(false);
-        ObesrvacaoText.setRows(5);
-        jScrollPane1.setViewportView(ObesrvacaoText);
+        ObservacaoText.setColumns(20);
+        ObservacaoText.setEditable(false);
+        ObservacaoText.setRows(5);
+        jScrollPane1.setViewportView(ObservacaoText);
 
         jLabel4.setText("Quantidade");
 
@@ -106,10 +110,10 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
 
         jButtonEditar.setText("Editar");
 
-        jTextFieldCodigo.setEditable(false);
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        CodigoText.setEditable(false);
+        CodigoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
+                CodigoTextActionPerformed(evt);
             }
         });
 
@@ -142,7 +146,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                         .addComponent(jButtonCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CodigoText, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -175,7 +179,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                     .addComponent(jLabel10)
                     .addComponent(jLabel3))
                 .addGap(31, 31, 31)
-                .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CodigoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -222,14 +226,23 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_jButtonCancelarActionPerformed
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-    JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+    int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+    if(n==0){
+            try {
+                ExcluiProduto();
+            } catch (Exception ex) {
+                Logger.getLogger(JDialogVisualizarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(rootPane, "Produto " + NomeText.getText() + " Excluido");
+            dispose();
+    }
     
     // TODO add your handling code here:
 }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoTextActionPerformed
     
-}//GEN-LAST:event_jTextFieldCodigoActionPerformed
+}//GEN-LAST:event_CodigoTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,9 +291,10 @@ private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CodigoText;
     private javax.swing.JFormattedTextField DescricaoText;
     private javax.swing.JFormattedTextField NomeText;
-    private javax.swing.JTextArea ObesrvacaoText;
+    private javax.swing.JTextArea ObservacaoText;
     private javax.swing.JFormattedTextField QuantidadeText;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
@@ -293,11 +307,26 @@ private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextFieldCodigo;
     // End of variables declaration//GEN-END:variables
 
-    private void valor(){
-     
+    private void ExcluiProduto() throws Exception{
+    
+        java.sql.Connection con = conexao.getConnection();
+   
+ try {
+            String sql = "DELETE FROM produto where codigo = ?";
+//            
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, CodigoText.getText());  
+            pst.execute();
+            con.commit();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
     }
 
 }

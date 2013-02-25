@@ -10,7 +10,11 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.Conexao;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +22,14 @@ import javax.swing.JOptionPane;
  * @author Douglas Santiago
  */
 public class JDialogProdutoMenu extends javax.swing.JDialog {
+
     static String codigo;
     private static String nome;
     private static String descricao;
     private static String quantidade;
     private static String observacao;
     private Conexao conexao = new Conexao();
-    
+    private Produto p = new Produto();
 
     /** Creates new form JDialogCadastrarProduto */
     public JDialogProdutoMenu() {
@@ -47,7 +52,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
         QuantidadeText = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ObsText = new javax.swing.JTextArea();
+        ObservacaoText = new javax.swing.JTextArea();
         NomeText = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
@@ -79,9 +84,9 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
 
         jLabel4.setText("Quantidade");
 
-        ObsText.setColumns(20);
-        ObsText.setRows(5);
-        jScrollPane1.setViewportView(ObsText);
+        ObservacaoText.setColumns(20);
+        ObservacaoText.setRows(5);
+        jScrollPane1.setViewportView(ObservacaoText);
 
         NomeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +211,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void NomeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeTextActionPerformed
-    nome = NomeText.getText();
+    NomeText.setText(p.getNome());
     // TODO add your handling code here:
 }//GEN-LAST:event_NomeTextActionPerformed
 
@@ -222,17 +227,31 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     int n = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir");
-    if(n==0){
-    dispose();
+    if (n == 0) {
+        try {
+            ExcluiProduto();
+        } catch (Exception ex) {
+            Logger.getLogger(JDialogProdutoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(rootPane, "Produto " + NomeText.getText() + " Excluido");
+        dispose();
     }
     // TODO add your handling code here:
 }//GEN-LAST:event_jButton4ActionPerformed
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-// TODO add your handling code here:
+    int n = JOptionPane.showConfirmDialog(rootPane, "Deseja alter o produto" + NomeText.getText() );
+    if(n==0){
+    JOptionPane.showMessageDialog(rootPane, "Alterado");
+    AlterCliente();
+    } else {
+    dispose();
+    }
+    // TODO add your handling code here:
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoTextActionPerformed
+
     codigo = CodigoText.getText();
     // TODO add your handling code here:
 }//GEN-LAST:event_CodigoTextActionPerformed
@@ -289,7 +308,7 @@ private void QuantidadeTextActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JTextField CodigoText;
     private javax.swing.JFormattedTextField DescricaoText;
     private javax.swing.JFormattedTextField NomeText;
-    private javax.swing.JTextArea ObsText;
+    private javax.swing.JTextArea ObservacaoText;
     private javax.swing.JFormattedTextField QuantidadeText;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -304,14 +323,44 @@ private void QuantidadeTextActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    private void AlterCliente(){
+    private void AlterCliente() {
         Connection con = conexao.getConnection();
-    
-        
-    
-    
+        try {
+            String sql = "UPDATE FROM produto where (codigo,nome,descricao,quantidade,observacao) Values (?, ?, ?, ?, ?)";
+
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, CodigoText.getText());
+            pst.setString(2, NomeText.getText());
+            pst.setString(3, DescricaoText.getText());
+            pst.setString(4, QuantidadeText.getText());
+            pst.setString(5, ObservacaoText.getText());
+            pst.execute();
+            con.commit();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
     }
 
+    private void ExcluiProduto() throws Exception {
 
+        java.sql.Connection con = conexao.getConnection();
 
+        try {
+            String sql = "DELETE FROM produto where codigo = ?";
+
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, CodigoText.getText());
+            pst.execute();
+            con.commit();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }
 }

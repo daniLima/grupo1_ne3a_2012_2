@@ -11,7 +11,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 
-
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,21 +24,18 @@ import javax.swing.JOptionPane;
  * @author Douglas Santiago
  */
 public class JDialogCadastroProduto extends javax.swing.JDialog {
-    
+    private JDialogProdutoMenu pm = new JDialogProdutoMenu();
     private Conexao conexao = new Conexao();
+    public static void main(String[] args) {
 
+    }
     /** Creates new form JDialogCadastroProduto */
     public JDialogCadastroProduto() {
-
+        
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    
-    
-    
-    
-    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -209,12 +206,12 @@ public class JDialogCadastroProduto extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void NomeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeTextActionPerformed
-   
+//    NomeText.setText(p.getNome());
     // TODO add your handling code here:
 }//GEN-LAST:event_NomeTextActionPerformed
 
 private void DescricaoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescricaoTextActionPerformed
-   
+//   DescricaoText.setText(p.getDescricao());
     // TODO add your handling code here:
 }//GEN-LAST:event_DescricaoTextActionPerformed
 
@@ -225,13 +222,13 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_jButtonCancelarActionPerformed
 
 private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoTextActionPerformed
-   
+//   CodigoText.setText(p.getCodigo());
     // TODO add your handling code here:
 }//GEN-LAST:event_CodigoTextActionPerformed
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         try {
-            addCliente();
+            addProduto();
         } catch (Exception ex) {
             Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -246,7 +243,7 @@ private void QuantidadeTextActionPerformed(java.awt.event.ActionEvent evt) {//GE
 }//GEN-LAST:event_QuantidadeTextActionPerformed
    
 private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ObservacoesTextAncestorAdded
-  
+    
     // TODO add your handling code here:
 }//GEN-LAST:event_ObservacoesTextAncestorAdded
         
@@ -271,7 +268,13 @@ private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {
 
     
     
-   private void addCliente() throws Exception{
+   private void addProduto() throws Exception{
+              
+//            p.setCodigo(CodigoText.getText());
+//            p.setNome(NomeText.getText());
+//            p.setDescricao(DescricaoText.getText());
+//            p.setQuantidade(QuantidadeText.getText());
+//            p.setObservacoes( ObservacoesText.getText());
     
         Connection con = conexao.getConnection();
    
@@ -293,13 +296,18 @@ private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {
             Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
             
         }
-        //deixar os campos vazio...
-//        CodigoText.setText(null);
-//        NomeText.setText(null);
-//        DescricaoText.setText(null);
-//        QuantidadeText.setText(null);
-//        ObservacoesText.setText(null);
+           
+            
+        
+ 
+ 
     }
+   
+   private void set(){
+//   ObservacoesText.setText(p.getObservacoes());
+   
+   }
+
 
 }
 
