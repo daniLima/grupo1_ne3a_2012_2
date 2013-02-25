@@ -79,14 +79,32 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         Nome.setText("Nome:");
         getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
+
+        rNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rNomeActionPerformed(evt);
+            }
+        });
         getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 64, 243, -1));
 
         Endereco.setText("Endereço:");
         getContentPane().add(Endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        rEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rEnderecoActionPerformed(evt);
+            }
+        });
         getContentPane().add(rEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 243, -1));
 
         Bairro.setText("Bairro:");
         getContentPane().add(Bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        rBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rBairroActionPerformed(evt);
+            }
+        });
         getContentPane().add(rBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 58, -1));
 
         Cidade.setText("Cidade:");
@@ -101,6 +119,12 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         jLabel1.setText("Telefone:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+
+        rTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rTelefoneActionPerformed(evt);
+            }
+        });
         getContentPane().add(rTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
 
         CPF.setText("CPF:");
@@ -174,6 +198,22 @@ private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
    JOptionPane.showMessageDialog(rootPane, "Cancelado");
                    dispose();
 }//GEN-LAST:event_rCancelarActionPerformed
+
+private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_rNomeActionPerformed
+
+private void rEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEnderecoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_rEnderecoActionPerformed
+
+private void rBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBairroActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_rBairroActionPerformed
+
+private void rTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rTelefoneActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_rTelefoneActionPerformed
 
     /**
      * @param args the command line arguments

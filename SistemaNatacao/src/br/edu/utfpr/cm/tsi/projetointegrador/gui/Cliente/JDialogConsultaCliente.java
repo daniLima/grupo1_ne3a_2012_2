@@ -52,6 +52,12 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         Nome.setText("Nome");
         getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 0));
+
+        rNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rNomeActionPerformed(evt);
+            }
+        });
         getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 360, -1));
 
         Pesquisar.setText("Pesquisar");
@@ -81,6 +87,11 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 80, -1));
 
         Fechar.setText("Fechar");
+        Fechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FecharActionPerformed(evt);
+            }
+        });
         getContentPane().add(Fechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
 
         pack();
@@ -89,6 +100,15 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
 private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_okActionPerformed
+
+private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+// TODO add your handling code here:
+    dispose();
+}//GEN-LAST:event_FecharActionPerformed
+
+private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_rNomeActionPerformed
 
     /**
      * @param args the command line arguments
