@@ -22,8 +22,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
     private static String endereco;
     private static String bairro;
     private static String cidade;
-    private static String telefone;   
-    private static String email;
+    private static String telefone;      
     private static String cpf;
     
     private Conexao conexao = new Conexao();
@@ -56,8 +55,6 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         rTelefone = new javax.swing.JTextField();
         CPF = new javax.swing.JLabel();
         rCPF = new javax.swing.JTextField();
-        email = new javax.swing.JLabel();
-        rEmail = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -115,14 +112,6 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
             }
         });
 
-        email.setText("Email:");
-
-        rEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rEmailActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Editar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +135,12 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
                 .addGap(44, 44, 44)
                 .addComponent(jButton3)
                 .addContainerGap(85, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(240, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Cidade)
+                    .addComponent(rCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(129, 129, 129))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 72, Short.MAX_VALUE)
@@ -177,24 +172,20 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
                             .addComponent(rBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(10, 10, 10)
-                            .addComponent(jLabel1)
-                            .addGap(54, 54, 54)
-                            .addComponent(Cidade)
-                            .addGap(83, 83, 83)
-                            .addComponent(email))
+                            .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(10, 10, 10)
-                            .addComponent(rTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(rCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(rEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 72, Short.MAX_VALUE)))
+                            .addComponent(rTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(57, 129, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(386, 386, 386)
+                .addGap(294, 294, 294)
+                .addComponent(Cidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -221,15 +212,9 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
                     .addGap(6, 6, 6)
                     .addComponent(rBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(20, 20, 20)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(Cidade)
-                        .addComponent(email))
+                    .addComponent(jLabel1)
                     .addGap(6, 6, 6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(rTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(128, 128, 128)))
         );
 
@@ -263,11 +248,6 @@ private void rCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
 // TODO add your handling code here:
     cpf=rCPF.getText();
 }//GEN-LAST:event_rCPFActionPerformed
-
-private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEmailActionPerformed
-// TODO add your handling code here:
-    email=rEmail.getText();
-}//GEN-LAST:event_rEmailActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // TODO add your handling code here:
@@ -323,7 +303,6 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel Cidade;
     private javax.swing.JLabel Endereco;
     private javax.swing.JLabel Nome;
-    private javax.swing.JLabel email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -331,7 +310,6 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JTextField rBairro;
     private javax.swing.JTextField rCPF;
     private javax.swing.JTextField rCidade;
-    private javax.swing.JTextField rEmail;
     private javax.swing.JTextField rEndereco;
     private javax.swing.JTextField rNome;
     private javax.swing.JTextField rTelefone;

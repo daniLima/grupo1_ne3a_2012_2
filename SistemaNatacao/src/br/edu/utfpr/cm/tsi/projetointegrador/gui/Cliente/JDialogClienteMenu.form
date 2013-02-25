@@ -31,6 +31,14 @@
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="85" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="240" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Cidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="rCidade" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
@@ -71,21 +79,13 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="54" pref="54" max="54" attributes="0"/>
-                          <Component id="Cidade" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="83" pref="83" max="83" attributes="0"/>
-                          <Component id="email" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                           <Component id="rTelefone" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="30" pref="30" max="30" attributes="0"/>
-                          <Component id="rCidade" min="-2" pref="85" max="-2" attributes="0"/>
-                          <EmptySpace min="25" pref="25" max="25" attributes="0"/>
-                          <Component id="rEmail" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
+                  <EmptySpace min="57" pref="129" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -93,7 +93,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="386" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
+              <Component id="Cidade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="rCidade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -122,17 +126,9 @@
                   <EmptySpace min="6" pref="6" max="6" attributes="0"/>
                   <Component id="rBairro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="20" pref="20" max="20" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="Cidade" min="-2" max="-2" attributes="0"/>
-                      <Component id="email" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="6" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="rTelefone" min="-2" max="-2" attributes="0"/>
-                      <Component id="rCidade" min="-2" max="-2" attributes="0"/>
-                      <Component id="rEmail" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="rTelefone" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -206,16 +202,6 @@
     <Component class="javax.swing.JTextField" name="rCPF">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rCPFActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="email">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="rEmail">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rEmailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
