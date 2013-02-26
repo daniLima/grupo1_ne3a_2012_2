@@ -51,22 +51,25 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     private void initComponents() {
 
         Cadastro_cliente = new javax.swing.JLabel();
-        Nome = new javax.swing.JLabel();
-        rNome = new javax.swing.JTextField();
-        Endereco = new javax.swing.JLabel();
-        rEndereco = new javax.swing.JTextField();
-        Bairro = new javax.swing.JLabel();
-        rBairro = new javax.swing.JTextField();
-        Cidade = new javax.swing.JLabel();
-        rCidade = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        CPF = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
-        rEmail = new javax.swing.JTextField();
+        jLabel1Telefone = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
+        jLabelMatricula = new javax.swing.JLabel();
+        jTextFieldMatricula = new javax.swing.JTextField();
+        jLabelNome = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jLabelCPF = new javax.swing.JLabel();
+        jLabelEndereço = new javax.swing.JLabel();
+        jTextFieldEndereco = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelBairro = new javax.swing.JLabel();
+        jTextFieldBairro = new javax.swing.JTextField();
+        jLabelCidade = new javax.swing.JLabel();
+        jTextFieldCidade = new javax.swing.JTextField();
+        jLabelEmail = new javax.swing.JLabel();
+        jTextFieldEmail = new javax.swing.JTextField();
 
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -77,61 +80,8 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         Cadastro_cliente.setText("Cadastro Cliente:");
         getContentPane().add(Cadastro_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        Nome.setText("Nome:");
-        getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
-
-        rNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rNomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 64, 243, -1));
-
-        Endereco.setText("Endereço:");
-        getContentPane().add(Endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        rEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rEnderecoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 243, -1));
-
-        Bairro.setText("Bairro:");
-        getContentPane().add(Bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        rBairro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBairroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 58, -1));
-
-        Cidade.setText("Cidade:");
-        getContentPane().add(Cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-
-        rCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rCidadeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 85, -1));
-
-        jLabel1.setText("Telefone:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
-
-        CPF.setText("CPF:");
-        getContentPane().add(CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-
-        email.setText("Email:");
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
-
-        rEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rEmailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 90, -1));
+        jLabel1Telefone.setText("Telefone:");
+        getContentPane().add(jLabel1Telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jButtonConfirmar.setText("Confirmar");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +89,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +97,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
 
         try {
             jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -159,38 +109,60 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
                 jFormattedTextFieldCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, -1));
+        getContentPane().add(jFormattedTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
 
         try {
             jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 80, -1));
+        getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, -1));
+
+        jLabelMatricula.setText("Matricula:");
+        getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        getContentPane().add(jTextFieldMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
+
+        jLabelNome.setText("Nome:");
+        getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 350, -1));
+
+        jLabelCPF.setText("CPF:");
+        getContentPane().add(jLabelCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        jLabelEndereço.setText("Endereço:");
+        getContentPane().add(jLabelEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        getContentPane().add(jTextFieldEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 340, -1));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+
+        jLabelBairro.setText("Bairro");
+        getContentPane().add(jLabelBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        getContentPane().add(jTextFieldBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
+
+        jLabelCidade.setText("Cidade:");
+        getContentPane().add(jLabelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+        getContentPane().add(jTextFieldCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 70, -1));
+
+        jLabelEmail.setText("Email:");
+        getContentPane().add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
+
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEmailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 100, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-525)/2, (screenSize.height-459)/2, 525, 459);
     }// </editor-fold>//GEN-END:initComponents
-
-private void rCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCidadeActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rCidadeActionPerformed
-
-private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEmailActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rEmailActionPerformed
-
-private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rNomeActionPerformed
-
-private void rEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEnderecoActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rEnderecoActionPerformed
-
-private void rBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBairroActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rBairroActionPerformed
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
    JOptionPane.showMessageDialog(email, "Cadastrado");
@@ -207,28 +179,39 @@ private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent ev
 // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
 
+private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldEmailActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Bairro;
-    private javax.swing.JLabel CPF;
     private javax.swing.JLabel Cadastro_cliente;
-    private javax.swing.JLabel Cidade;
-    private javax.swing.JLabel Endereco;
-    private javax.swing.JLabel Nome;
-    private javax.swing.JLabel email;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField rBairro;
-    private javax.swing.JTextField rCidade;
-    private javax.swing.JTextField rEmail;
-    private javax.swing.JTextField rEndereco;
-    private javax.swing.JTextField rNome;
+    private javax.swing.JLabel jLabel1Telefone;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelBairro;
+    private javax.swing.JLabel jLabelCPF;
+    private javax.swing.JLabel jLabelCidade;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelEndereço;
+    private javax.swing.JLabel jLabelMatricula;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCidade;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldEndereco;
+    private javax.swing.JTextField jTextFieldMatricula;
+    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 
  private void addCliente() throws Exception{
