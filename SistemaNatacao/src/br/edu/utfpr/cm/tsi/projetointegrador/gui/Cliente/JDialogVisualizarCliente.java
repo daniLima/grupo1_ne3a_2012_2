@@ -41,12 +41,12 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         Nome = new javax.swing.JLabel();
         endereco = new javax.swing.JLabel();
         telefone = new javax.swing.JLabel();
-        Editar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
-        Cancelar = new javax.swing.JButton();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldEndereço = new javax.swing.JTextField();
         jTextFieldTelefone = new javax.swing.JTextField();
+        jButtonEditar = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,30 +64,6 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         telefone.setText("Telefone");
         getContentPane().add(telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        Editar.setText("Editar");
-        Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
-
-        Excluir.setText("Excluir");
-        Excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
-
-        Cancelar.setText("Cancelar");
-        Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
-
         jTextFieldNome.setText("jTextField1");
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
@@ -97,22 +73,45 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         jTextFieldTelefone.setText("jTextField1");
         getContentPane().add(jTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_EditarActionPerformed
+}//GEN-LAST:event_jButtonEditarActionPerformed
 
-private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-// TODO add your handling code here
-    JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
-}//GEN-LAST:event_ExcluirActionPerformed
+private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButtonExcluirActionPerformed
 
-private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
 // TODO add your handling code here:
     dispose();
-}//GEN-LAST:event_CancelarActionPerformed
+}//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,12 +157,12 @@ private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancelar;
-    private javax.swing.JButton Editar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel VisualizaCliente;
     private javax.swing.JLabel endereco;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JTextField jTextFieldEndereço;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldTelefone;
