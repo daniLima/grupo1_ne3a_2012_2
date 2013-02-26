@@ -43,9 +43,8 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
     private void initComponents() {
 
         rNome = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
         jLabelNome = new javax.swing.JLabel();
         jLabelControleCliente = new javax.swing.JLabel();
         jLabelCPF = new javax.swing.JLabel();
@@ -57,7 +56,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         jLabelTelefone = new javax.swing.JLabel();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jLabelCidade = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,19 +68,16 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         });
         getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 243, -1));
 
-        jButton1.setText("Editar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 386, -1, -1));
+        getContentPane().add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 386, -1, -1));
 
-        jButton2.setText("Excluir");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 386, -1, -1));
-
-        jButton3.setText("Cancelar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 386, -1, -1));
+        jButtonExcluir.setText("Excluir");
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 386, -1, -1));
 
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
@@ -120,9 +116,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
 
         jLabelCidade.setText("Cidade");
         getContentPane().add(jLabelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        getContentPane().add(jTextFieldCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-470)/2, (screenSize.height-502)/2, 470, 502);
@@ -133,9 +127,9 @@ private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
     nome=rNome.getText();
 }//GEN-LAST:event_rNomeActionPerformed
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jButton1ActionPerformed
+}//GEN-LAST:event_jButtonEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,9 +175,8 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabelBairro;
@@ -193,8 +186,8 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel jLabelEndereco;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelTelefone;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldEndereco;
     private javax.swing.JTextField rNome;
     // End of variables declaration//GEN-END:variables

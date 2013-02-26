@@ -32,14 +32,14 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
     private void initComponents() {
 
         ConsultaClientes = new javax.swing.JLabel();
-        Nome = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        rNome = new javax.swing.JTextField();
-        Pesquisar = new javax.swing.JButton();
+        jLabelNome = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jButtonPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
-        ok = new javax.swing.JButton();
-        Fechar = new javax.swing.JButton();
+        jTableTabela = new javax.swing.JTable();
+        jButtonOk = new javax.swing.JButton();
+        jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Consulta Clientes"); // NOI18N
@@ -48,76 +48,57 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         ConsultaClientes.setFont(new java.awt.Font("Tahoma", 1, 18));
         ConsultaClientes.setText("Consulta Clientes");
         getContentPane().add(ConsultaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
-        Nome.setText("Nome");
-        getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 0));
 
-        rNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rNomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 360, -1));
+        jLabelNome.setText("Nome");
+        getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 360, -1));
 
-        Pesquisar.setText("Pesquisar");
-        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Pesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
+        jButtonPesquisar.setText("Pesquisar");
+        getContentPane().add(jButtonPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
 
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome", "Endereco", "Telefone"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(Tabela);
+        jScrollPane1.setViewportView(jTableTabela);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 470, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 320));
 
-        ok.setText("OK");
-        ok.addActionListener(new java.awt.event.ActionListener() {
+        jButtonOk.setText("OK");
+        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okActionPerformed(evt);
+                jButtonOkActionPerformed(evt);
             }
         });
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 80, -1));
+        getContentPane().add(jButtonOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 80, -1));
 
-        Fechar.setText("Fechar");
-        Fechar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFechar.setText("Fechar");
+        jButtonFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FecharActionPerformed(evt);
+                jButtonFecharActionPerformed(evt);
             }
         });
-        getContentPane().add(Fechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
+        getContentPane().add(jButtonFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_okActionPerformed
+}//GEN-LAST:event_jButtonOkActionPerformed
 
-private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
 // TODO add your handling code here:
     dispose();
-}//GEN-LAST:event_FecharActionPerformed
-
-private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rNomeActionPerformed
-
-private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_PesquisarActionPerformed
+}//GEN-LAST:event_jButtonFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,13 +145,13 @@ private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConsultaClientes;
-    private javax.swing.JButton Fechar;
-    private javax.swing.JLabel Nome;
-    private javax.swing.JButton Pesquisar;
-    private javax.swing.JTable Tabela;
+    private javax.swing.JButton jButtonFechar;
+    private javax.swing.JButton jButtonOk;
+    private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelNome;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton ok;
-    private javax.swing.JTextField rNome;
+    private javax.swing.JTable jTableTabela;
+    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }
