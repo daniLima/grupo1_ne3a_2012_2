@@ -12,6 +12,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogProdutoMenu;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogCadastroCliente;
 
 
 

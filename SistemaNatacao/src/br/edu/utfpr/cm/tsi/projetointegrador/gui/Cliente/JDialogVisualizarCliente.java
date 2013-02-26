@@ -44,11 +44,14 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         Editar = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
+        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldEndereço = new javax.swing.JTextField();
+        jTextFieldTelefone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
         VisualizaCliente.setText("Visualizar Cliente");
         getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -56,10 +59,10 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         endereco.setText("Endereço:");
-        getContentPane().add(endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        getContentPane().add(endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         telefone.setText("Telefone");
-        getContentPane().add(telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        getContentPane().add(telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         Editar.setText("Editar");
         Editar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +87,15 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
+
+        jTextFieldNome.setText("jTextField1");
+        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        jTextFieldEndereço.setText("jTextField1");
+        getContentPane().add(jTextFieldEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        jTextFieldTelefone.setText("jTextField1");
+        getContentPane().add(jTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,6 +164,9 @@ private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel VisualizaCliente;
     private javax.swing.JLabel endereco;
+    private javax.swing.JTextField jTextFieldEndereço;
+    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldTelefone;
     private javax.swing.JLabel telefone;
     // End of variables declaration//GEN-END:variables
 }

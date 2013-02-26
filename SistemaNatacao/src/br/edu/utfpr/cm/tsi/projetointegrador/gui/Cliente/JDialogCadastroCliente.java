@@ -60,17 +60,17 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         Cidade = new javax.swing.JLabel();
         rCidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        rTelefone = new javax.swing.JTextField();
         CPF = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
         rEmail = new javax.swing.JTextField();
-        Confirmar = new javax.swing.JLabel();
-        rConfirmar = new javax.swing.JTextField();
-        Cancelar = new javax.swing.JLabel();
-        rCancelar = new javax.swing.JTextField();
-        rCPF = new javax.swing.JFormattedTextField();
+        jButtonConfirmar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jFormattedTextFieldCPF = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
 
+        setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18));
@@ -120,13 +120,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabel1.setText("Telefone:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        rTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rTelefoneActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
-
         CPF.setText("CPF:");
         getContentPane().add(CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
@@ -140,34 +133,43 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         });
         getContentPane().add(rEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 90, -1));
 
-        Confirmar.setText("Confirmar:");
-        getContentPane().add(Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
-
-        rConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rConfirmarActionPerformed(evt);
+                jButtonConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(rConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, -1));
+        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
-        Cancelar.setText("Cancelar:");
-        getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
-
-        rCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rCancelarActionPerformed(evt);
+                jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(rCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 80, -1));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
-        rCPF.addActionListener(new java.awt.event.ActionListener() {
+        try {
+            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rCPFActionPerformed(evt);
+                jFormattedTextFieldCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(rCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+        getContentPane().add(jFormattedTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, -1));
 
-        pack();
+        try {
+            jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 80, -1));
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-525)/2, (screenSize.height-459)/2, 525, 459);
     }// </editor-fold>//GEN-END:initComponents
 
 private void rCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCidadeActionPerformed
@@ -177,24 +179,6 @@ private void rCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
 private void rEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEmailActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_rEmailActionPerformed
-
-private void rConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rConfirmarActionPerformed
-// TODO add your handling code here:
-    try {
-            addCliente();
-        } catch (Exception ex) {
-            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    JOptionPane.showMessageDialog(rootPane, "Cliente: " + rNome.getText()+ " Cadastrado");
-    dispose();
-    new JDialogVisualizarCliente().setVisible(true);
-  
-}//GEN-LAST:event_rConfirmarActionPerformed
-
-private void rCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCancelarActionPerformed
-   JOptionPane.showMessageDialog(rootPane, "Cancelado");
-                   dispose();
-}//GEN-LAST:event_rCancelarActionPerformed
 
 private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
 // TODO add your handling code here:
@@ -208,13 +192,20 @@ private void rBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
 // TODO add your handling code here:
 }//GEN-LAST:event_rBairroActionPerformed
 
-private void rTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rTelefoneActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_rTelefoneActionPerformed
+private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+   JOptionPane.showMessageDialog(email, "Cadastrado");
+   dispose();
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButtonConfirmarActionPerformed
 
-private void rCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCPFActionPerformed
+private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_rCPFActionPerformed
+    dispose();
+}//GEN-LAST:event_jButtonCancelarActionPerformed
+
+private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,22 +215,20 @@ private void rCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
     private javax.swing.JLabel Bairro;
     private javax.swing.JLabel CPF;
     private javax.swing.JLabel Cadastro_cliente;
-    private javax.swing.JLabel Cancelar;
     private javax.swing.JLabel Cidade;
-    private javax.swing.JLabel Confirmar;
     private javax.swing.JLabel Endereco;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel email;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField rBairro;
-    private javax.swing.JFormattedTextField rCPF;
-    private javax.swing.JTextField rCancelar;
     private javax.swing.JTextField rCidade;
-    private javax.swing.JTextField rConfirmar;
     private javax.swing.JTextField rEmail;
     private javax.swing.JTextField rEndereco;
     private javax.swing.JTextField rNome;
-    private javax.swing.JTextField rTelefone;
     // End of variables declaration//GEN-END:variables
 
  private void addCliente() throws Exception{
@@ -252,10 +241,10 @@ private void rCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, rNome.getText());  
-            pst.setString(2, rCPF.getText());
+            pst.setString(2, jFormattedTextFieldCPF.getText());
             pst.setString(3, rEndereco.getText());
             pst.setString(4, rBairro.getText());
-            pst.setString(5, rTelefone.getText());
+            pst.setString(5, jFormattedTextFieldTelefone.getText());
             pst.setString(6, rCidade.getText());
             pst.setString(7,rEmail.getText());
             pst.execute();

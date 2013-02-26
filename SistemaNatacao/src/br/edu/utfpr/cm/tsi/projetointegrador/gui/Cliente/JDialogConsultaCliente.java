@@ -45,7 +45,7 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         setName("Consulta Clientes"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ConsultaClientes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ConsultaClientes.setFont(new java.awt.Font("Tahoma", 1, 18));
         ConsultaClientes.setText("Consulta Clientes");
         getContentPane().add(ConsultaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
@@ -61,6 +61,11 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         getContentPane().add(rNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 360, -1));
 
         Pesquisar.setText("Pesquisar");
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Pesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,6 +114,10 @@ private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
 private void rNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNomeActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_rNomeActionPerformed
+
+private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_PesquisarActionPerformed
 
     /**
      * @param args the command line arguments
