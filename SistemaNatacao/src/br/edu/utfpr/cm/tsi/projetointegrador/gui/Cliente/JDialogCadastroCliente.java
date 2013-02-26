@@ -165,8 +165,8 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-   JOptionPane.showMessageDialog(email, "Cadastrado");
-   dispose();
+        JOptionPane.showMessageDialog(jLabelNome, "Cadastrado");
+         dispose();
     // TODO add your handling code here:
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
@@ -223,13 +223,13 @@ private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//G
             
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, rNome.getText());  
+            pst.setString(1, jLabelNome.getText());  
             pst.setString(2, jFormattedTextFieldCPF.getText());
-            pst.setString(3, rEndereco.getText());
-            pst.setString(4, rBairro.getText());
+            pst.setString(3, jLabelEndereço.getText());
+            pst.setString(4, jLabelBairro.getText());
             pst.setString(5, jFormattedTextFieldTelefone.getText());
-            pst.setString(6, rCidade.getText());
-            pst.setString(7,rEmail.getText());
+            pst.setString(6, jLabelCidade.getText());
+            pst.setString(7,jLabelEmail.getText());
             pst.execute();
             
             con.commit();
