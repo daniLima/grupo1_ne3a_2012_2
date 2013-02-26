@@ -29,7 +29,7 @@ public class Conexao {
      public Conexao() {
         driver = "com.mysql.jdbc.Driver";
         usuario = "root";
-        senha = "daniele";
+        senha = "douglas";
         endereco = "jdbc:mysql://localhost:3306/sistemanatacao";
     }
 

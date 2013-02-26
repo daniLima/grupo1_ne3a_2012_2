@@ -10,7 +10,7 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.Conexao;
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
