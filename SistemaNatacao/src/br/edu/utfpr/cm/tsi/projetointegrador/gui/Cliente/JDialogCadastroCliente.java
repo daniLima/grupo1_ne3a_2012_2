@@ -165,13 +165,14 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-        JOptionPane.showMessageDialog(jLabelNome, "Cadastrado");
+        JOptionPane.showMessageDialog(rootPane, "Cadastrado");
          dispose();
     // TODO add your handling code here:
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
 private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
 // TODO add your handling code here:
+    JOptionPane.showMessageDialog(rootPane, "Cancelar");
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
 
