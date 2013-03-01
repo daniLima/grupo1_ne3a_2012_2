@@ -4,8 +4,9 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -28,16 +29,25 @@ public class Conexao {
         
     }
     
-    public Connection getConnection(){
-        
+    public Connection getConnection(){        
         try{
+            
             Class.forName(this.driver);
-            con =DriverManager.getConnection(endereco,usuario,senha);
+            con = DriverManager.getConnection(endereco,usuario,senha);
+        }catch (ClassNotFoundException erro){
+            System.out.println("Falha ao carrgar o Driver JDBC/ODBC." +erro);
+            return null;
             
+        }catch (SQLException erro){
+            System.out.println("Falha na conexão,comando SQL = " +erro);
+            return null;
             
-            
-            
+        }catch (Exception erro){
+            erro.getMessage();
+            System.out.println("Não foi possivel a conexão!!");
+            return null;
         }
+        return con;
     }
     
 }
