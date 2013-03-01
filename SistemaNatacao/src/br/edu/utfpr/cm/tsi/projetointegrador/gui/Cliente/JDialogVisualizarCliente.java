@@ -216,7 +216,7 @@ private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//
         java.sql.Connection con = conexao.getConnection();
    
  try {
-            String sql = "DELETE FROM produto where codigo = ?";
+            String sql = "DELETE FROM cliente where codigo = ?";
            
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);

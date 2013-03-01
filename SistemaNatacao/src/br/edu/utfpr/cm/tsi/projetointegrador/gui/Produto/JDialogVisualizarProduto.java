@@ -109,6 +109,11 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
         });
 
         jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         CodigoText.setEditable(false);
         CodigoText.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +131,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -206,7 +211,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                     .addComponent(QuantidadeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(jLabel7)
-                    .addContainerGap(134, Short.MAX_VALUE)))
+                    .addContainerGap(136, Short.MAX_VALUE)))
         );
 
         pack();
@@ -243,6 +248,10 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
 private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoTextActionPerformed
     
 }//GEN-LAST:event_CodigoTextActionPerformed
+
+private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButtonEditarActionPerformed
 
     /**
      * @param args the command line arguments

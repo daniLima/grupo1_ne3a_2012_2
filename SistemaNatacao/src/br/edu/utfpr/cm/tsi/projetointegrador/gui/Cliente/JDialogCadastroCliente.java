@@ -10,8 +10,6 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogVisualizarProduto;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -54,22 +52,22 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabel1Telefone = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jFormattedTextFieldCPF = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
+        jFormattedTextCPF = new javax.swing.JFormattedTextField();
+        jFormattedTextTelefone = new javax.swing.JFormattedTextField();
         jLabelMatricula = new javax.swing.JLabel();
-        jTextFieldMatricula = new javax.swing.JTextField();
+        jTextMatricula = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelCPF = new javax.swing.JLabel();
         jLabelEndereço = new javax.swing.JLabel();
-        jTextFieldEndereco = new javax.swing.JTextField();
+        jTextEndereco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabelBairro = new javax.swing.JLabel();
-        jTextFieldBairro = new javax.swing.JTextField();
+        jTextBairro = new javax.swing.JTextField();
         jLabelCidade = new javax.swing.JLabel();
-        jTextFieldCidade = new javax.swing.JTextField();
+        jTextCidade = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
+        jTextEmail = new javax.swing.JTextField();
 
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -100,27 +98,33 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
 
         try {
-            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            jFormattedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldCPFActionPerformed(evt);
+                jFormattedTextCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
+        getContentPane().add(jFormattedTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
 
         try {
-            jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jFormattedTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, -1));
+        getContentPane().add(jFormattedTextTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, -1));
 
         jLabelMatricula.setText("Matricula:");
         getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-        getContentPane().add(jTextFieldMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
+
+        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextMatriculaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
 
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -137,28 +141,28 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         jLabelEndereço.setText("Endereço:");
         getContentPane().add(jLabelEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
-        getContentPane().add(jTextFieldEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 340, -1));
+        getContentPane().add(jTextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 340, -1));
 
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
 
         jLabelBairro.setText("Bairro");
         getContentPane().add(jLabelBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
-        getContentPane().add(jTextFieldBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
+        getContentPane().add(jTextBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
 
         jLabelCidade.setText("Cidade:");
         getContentPane().add(jLabelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
-        getContentPane().add(jTextFieldCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 70, -1));
+        getContentPane().add(jTextCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 70, -1));
 
         jLabelEmail.setText("Email:");
         getContentPane().add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
 
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+        jTextEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
+                jTextEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 100, -1));
+        getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 100, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-525)/2, (screenSize.height-459)/2, 525, 459);
@@ -183,17 +187,21 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
+private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextCPFActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
+}//GEN-LAST:event_jFormattedTextCPFActionPerformed
 
 private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
-private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
+private void jTextEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEmailActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldEmailActionPerformed
+}//GEN-LAST:event_jTextEmailActionPerformed
+
+private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,8 +211,8 @@ private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JLabel Cadastro_cliente;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConfirmar;
-    private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
-    private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
+    private javax.swing.JFormattedTextField jFormattedTextCPF;
+    private javax.swing.JFormattedTextField jFormattedTextTelefone;
     private javax.swing.JLabel jLabel1Telefone;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBairro;
@@ -214,12 +222,12 @@ private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JLabel jLabelEndereço;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelNome;
-    private javax.swing.JTextField jTextFieldBairro;
-    private javax.swing.JTextField jTextFieldCidade;
-    private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEndereco;
-    private javax.swing.JTextField jTextFieldMatricula;
+    private javax.swing.JTextField jTextBairro;
+    private javax.swing.JTextField jTextCidade;
+    private javax.swing.JTextField jTextEmail;
+    private javax.swing.JTextField jTextEndereco;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextMatricula;
     // End of variables declaration//GEN-END:variables
 
  private void addCliente() throws Exception{
@@ -227,17 +235,18 @@ private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//G
         Connection con = conexao.getConnection();
    
  try {
-            String sql = "INSERT INTO cliente(nome,cpf,endereco,bairro,telefone,cidade,email ) Values (?, ?, ?, ?, ?,?,?)";
+            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email ) Values (?,?, ?, ?, ?, ?,?,?)";
             
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, jLabelNome.getText());  
-            pst.setString(2, jFormattedTextFieldCPF.getText());
-            pst.setString(3, jLabelEndereço.getText());
-            pst.setString(4, jLabelBairro.getText());
-            pst.setString(5, jFormattedTextFieldTelefone.getText());
-            pst.setString(6, jLabelCidade.getText());
-            pst.setString(7,jLabelEmail.getText());
+            pst.setString(1,jLabelMatricula.getText() );
+            pst.setString(2, jLabelNome.getText());  
+            pst.setString(3, jFormattedTextCPF.getText());
+            pst.setString(4, jLabelEndereço.getText());
+            pst.setString(5, jLabelBairro.getText());
+            pst.setString(6, jFormattedTextTelefone.getText());
+            pst.setString(7, jLabelCidade.getText());
+            pst.setString(8,jLabelEmail.getText());
             pst.execute();
             
             con.commit();
