@@ -5,6 +5,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario;
 
 import com.mysql.jdbc.Connection;
+import java.sql.DriverManager;
 
 /**
  *
@@ -16,16 +17,27 @@ public class Conexao {
     private String driver;
     private String usuario;
     private String senha;
-    private String endereço;
+    private String endereco;
     
     
     public Conexao(){
         driver = " com.mysql.jdbc.Driver";
         usuario = " root";
         senha = "douglas";
-        endereço = " jdbc:mysql://localhost:3306/sistemanatacao";
+        endereco = " jdbc:mysql://localhost:3306/sistemanatacao";
         
     }
     
+    public Connection getConnection(){
+        
+        try{
+            Class.forName(this.driver);
+            con =DriverManager.getConnection(endereco,usuario,senha);
+            
+            
+            
+            
+        }
+    }
     
 }
