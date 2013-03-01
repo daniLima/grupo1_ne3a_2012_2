@@ -10,6 +10,9 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,8 +20,14 @@ import javax.swing.JOptionPane;
  * @author Daniele
  */
 public class JDialogVisualizarCliente extends javax.swing.JDialog {
+    Conexao conexao= new Conexao();    
+         
+    
        JDialogCadastroCliente cd = new JDialogCadastroCliente();
     /** Creates new form JDialogVisualizarCliente */
+       
+       
+       
     public JDialogVisualizarCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -38,15 +47,17 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
     private void initComponents() {
 
         VisualizaCliente = new javax.swing.JLabel();
-        Nome = new javax.swing.JLabel();
-        endereco = new javax.swing.JLabel();
-        telefone = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
         jTextFieldEndereço = new javax.swing.JTextField();
-        jTextFieldTelefone = new javax.swing.JTextField();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        jLabelCodigo = new javax.swing.JLabel();
+        jTextFieldCodigo = new javax.swing.JTextField();
+        jLabel1Nome = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jLabelEndereco = new javax.swing.JLabel();
+        jLabelTelefone = new javax.swing.JLabel();
+        jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,24 +65,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
         VisualizaCliente.setText("Visualizar Cliente");
         getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        Nome.setText("Nome");
-        getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        endereco.setText("Endereço:");
-        getContentPane().add(endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        telefone.setText("Telefone");
-        getContentPane().add(telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-
-        jTextFieldNome.setText("jTextField1");
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-
-        jTextFieldEndereço.setText("jTextField1");
-        getContentPane().add(jTextFieldEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-
-        jTextFieldTelefone.setText("jTextField1");
-        getContentPane().add(jTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        getContentPane().add(jTextFieldEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, -1));
 
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +91,33 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
 
+        jLabelCodigo.setText("Código");
+        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
+
+        jLabel1Nome.setText("Nome");
+        getContentPane().add(jLabel1Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+
+        jLabelEndereco.setText("Endereço:");
+        getContentPane().add(jLabelEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabelTelefone.setText("Telefone");
+        getContentPane().add(jLabelTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        try {
+            jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 110, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -106,12 +127,28 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
 // TODO add your handling code here:
+        int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+    if(n==0){
+            try {
+                ExcluirCliente();
+            } catch (Exception ex) {
+                Logger.getLogger(JDialogVisualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(rootPane, "Produto " + jTextFieldNome.getText() + " Excluido");
+            dispose();
+    }
+    
+    
 }//GEN-LAST:event_jButtonExcluirActionPerformed
 
 private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
 // TODO add your handling code here:
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,15 +194,43 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Nome;
     private javax.swing.JLabel VisualizaCliente;
-    private javax.swing.JLabel endereco;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
+    private javax.swing.JLabel jLabel1Nome;
+    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabelEndereco;
+    private javax.swing.JLabel jLabelTelefone;
+    private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldEndereço;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldTelefone;
-    private javax.swing.JLabel telefone;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+ private void ExcluirCliente() throws Exception{
+    
+        java.sql.Connection con = conexao.getConnection();
+   
+ try {
+            String sql = "DELETE FROM produto where codigo = ?";
+           
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, jLabelCodigo.getText());  
+            pst.execute();
+            con.commit();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+    }
 }
+
+
+
