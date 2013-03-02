@@ -40,6 +40,7 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         jTableTabela = new javax.swing.JTable();
         jButtonOk = new javax.swing.JButton();
         jButtonFechar = new javax.swing.JButton();
+        jLabelSistemaNadar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Consulta Clientes"); // NOI18N
@@ -87,6 +88,9 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
+
+        jLabelSistemaNadar.setText("Sistema Nadar");
+        getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,6 +154,7 @@ private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelSistemaNadar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableTabela;
     private javax.swing.JTextField jTextFieldNome;

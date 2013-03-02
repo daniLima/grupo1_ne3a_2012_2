@@ -57,6 +57,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jLabelCidade = new javax.swing.JLabel();
         jTextFieldCidade = new javax.swing.JTextField();
+        jLabelSistemaNadar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,7 +83,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jLabelControleCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelControleCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabelControleCliente.setText("Controle Cliente");
         getContentPane().add(jLabelControleCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -117,6 +118,9 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         jLabelCidade.setText("Cidade");
         getContentPane().add(jLabelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
         getContentPane().add(jTextFieldCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, -1));
+
+        jLabelSistemaNadar.setText("Sistema Nadar");
+        getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-470)/2, (screenSize.height-502)/2, 470, 502);
@@ -185,6 +189,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel jLabelControleCliente;
     private javax.swing.JLabel jLabelEndereco;
     private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelSistemaNadar;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldCidade;

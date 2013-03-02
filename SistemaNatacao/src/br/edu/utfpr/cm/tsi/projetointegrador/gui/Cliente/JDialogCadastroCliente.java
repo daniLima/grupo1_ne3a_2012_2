@@ -68,6 +68,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jTextCidade = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jTextEmail = new javax.swing.JTextField();
+        jLabelSistemaNadar = new javax.swing.JLabel();
 
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -187,6 +188,9 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 100, -1));
 
+        jLabelSistemaNadar.setText("Sistema Nadar ");
+        getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
+
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-525)/2, (screenSize.height-459)/2, 525, 459);
     }// </editor-fold>//GEN-END:initComponents
@@ -264,6 +268,7 @@ private void jTextCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel jLabelEndereço;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelSistemaNadar;
     private javax.swing.JTextField jTextBairro;
     private javax.swing.JTextField jTextCidade;
     private javax.swing.JTextField jTextEmail;
