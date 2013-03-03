@@ -36,7 +36,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -69,7 +69,7 @@
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="296" max="32767" attributes="0"/>
+              <EmptySpace pref="215" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

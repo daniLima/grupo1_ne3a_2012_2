@@ -10,6 +10,7 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -23,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class JDialogCadastroProduto extends javax.swing.JDialog {
     private JDialogProdutoMenu pm = new JDialogProdutoMenu();
-    private Conexao conexao = new Conexao();
+    
 //      private ConnectionManager con = new ConnectionManager();
     public static void main(String[] args) {
 
@@ -276,17 +277,11 @@ private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {
     
     
    private void addProduto() throws Exception{
-              
-//            p.setCodigo(CodigoText.getText());
-//            p.setNome(NomeText.getText());
-//            p.setDescricao(DescricaoText.getText());
-//            p.setQuantidade(QuantidadeText.getText());
-//            p.setObservacoes( ObservacoesText.getText());
-    
-        Connection con = conexao.getConnection();
-        
    
+
+
  try {
+     Connection con = new ConnectionManager().Conexao();
             String sql = "INSERT INTO produto(codigo, nome, descricao, quantidade, observacao) Values (?, ?, ?, ?, ?)";
             
             con.setAutoCommit(false);

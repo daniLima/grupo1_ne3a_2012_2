@@ -8,30 +8,63 @@ package br.edu.utfpr.cm.tsi.projetointegrador.coneccao;
  *
  * @author Douglas Santiago
  */
-import java.sql.DriverManager;
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
- 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ConnectionManager {
- 
-  public static void main(String[] argv) {
- 
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-	} catch (ClassNotFoundException e) {
-		System.out.println("Where is your MySQL JDBC Driver?");
-		e.printStackTrace();
-		return;
-	}
- 
-	try {
-		Connection connection = DriverManager
-		.getConnection("jdbc:mysql://localhost:3306/douglas","root", "douglas");
- 
-	} catch (SQLException e) {
-		System.out.println("Connection Failed! Check output console");
-		e.printStackTrace();
-		return;
-	}
-  }
+
+    public ConnectionManager() {
+    }
+
+    public Connection Conexao() {
+
+        try {
+
+
+
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection com = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistemanatacao", "root", "douglas");
+            return com;
+
+
+
+        } catch (SQLException ex) {
+
+            System.err.println("Deu merda!");
+            Logger.getLogger(ConnectionManager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+
+        }
+
+
+
+    }
+
+    public Connection Conexao(String endereco, String usuario, String senha) {
+
+        try {
+
+
+
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection com = DriverManager.getConnection(endereco, usuario, senha);
+            return com;
+
+
+
+        } catch (SQLException ex) {
+
+
+            System.err.println("Deu merda!");
+            Logger.getLogger(ConnectionManager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+
+        }
+
+
+    }
 }

@@ -138,7 +138,7 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
                             .addComponent(jLabelNome)
                             .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                             .addComponent(jLabel3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
@@ -165,7 +165,7 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -10,6 +10,8 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +22,7 @@ import javax.swing.JOptionPane;
  * @author Douglas Santiago
  */
 public class JDialogVisualizarProduto extends javax.swing.JDialog {
-   Conexao conexao = new Conexao();
+ 
    
     /** Creates new form JDialogVisualizarProduto */
     public JDialogVisualizarProduto(int produtoId) {
@@ -331,7 +333,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
     private void ExcluiProduto() throws Exception{
     
-        java.sql.Connection con = conexao.getConnection();
+        Connection con = new ConnectionManager().Conexao();
    
  try {
             String sql = "DELETE FROM produto where codigo = ?";
@@ -351,7 +353,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     
     private void onShow(){
         
-        java.sql.Connection con = conexao.getConnection();
+        Connection con = new ConnectionManager().Conexao();
    
  try {
             String sql = "SELECT * FROM produto where codigo = ?";
