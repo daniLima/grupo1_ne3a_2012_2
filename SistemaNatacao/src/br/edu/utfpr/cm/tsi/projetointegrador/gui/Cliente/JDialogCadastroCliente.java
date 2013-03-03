@@ -207,7 +207,7 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
         }
     JOptionPane.showMessageDialog(rootPane, "Cliente: " + jTextFieldNome.getText()+ " Cadastrado");
     dispose();
-            new JDialogVisualizarCliente().setVisible(true);
+//            new JDialogVisualizarCliente().setVisible(true);
   
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
 

@@ -33,9 +33,9 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         initComponents();
     }
 
-    JDialogVisualizarCliente() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+   // JDialogVisualizarCliente() {
+     //   throw new UnsupportedOperationException("Not yet implemented");
+  //  }
 
     /** This method is called from within the constructor to
      * initialize the form.
