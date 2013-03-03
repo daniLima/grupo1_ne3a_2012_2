@@ -10,7 +10,7 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -33,7 +33,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
 
     /** Creates new form JDialogCadastrarProduto */
     public JDialogProdutoMenu() {
-        setLocation(250, 100);
+        setLocation(320, 90);
         initComponents();
     }
 
@@ -170,7 +170,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,6 +227,7 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     int n = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir");
+    
     if (n == 0) {
         try {
             ExcluiProduto();
@@ -244,7 +245,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     if(n==0){
     JOptionPane.showMessageDialog(rootPane, "Alterado");
     AlterCliente();
-    } else {
+    } else if(n==2){
     dispose();
     }
     // TODO add your handling code here:

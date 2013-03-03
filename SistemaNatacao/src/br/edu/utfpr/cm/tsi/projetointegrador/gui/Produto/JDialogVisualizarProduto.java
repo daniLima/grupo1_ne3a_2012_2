@@ -10,7 +10,6 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-//import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.Conexao;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +23,14 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
    Conexao conexao = new Conexao();
    
     /** Creates new form JDialogVisualizarProduto */
-    public JDialogVisualizarProduto() {
+    public JDialogVisualizarProduto(int produtoId) {
         setLocation(250, 100);
         
         initComponents();
+    }
+
+    private JDialogVisualizarProduto() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     /** This method is called from within the constructor to
@@ -131,7 +134,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -211,7 +214,7 @@ public class JDialogVisualizarProduto extends javax.swing.JDialog {
                     .addComponent(QuantidadeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(jLabel7)
-                    .addContainerGap(136, Short.MAX_VALUE)))
+                    .addContainerGap(134, Short.MAX_VALUE)))
         );
 
         pack();
@@ -250,7 +253,15 @@ private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_CodigoTextActionPerformed
 
 private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-// TODO add your handling code here:
+    int n = JOptionPane.showConfirmDialog(rootPane, "Deseja editar o Produto");
+ 
+//    JOptionPane.showInternalConfirmDialog(, "information", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    
+    if(n==0){
+       dispose();
+    new JDialogConsultaProduto().setVisible(true);
+    }
+    // TODO add your handling code here:
 }//GEN-LAST:event_jButtonEditarActionPerformed
 
     /**
@@ -336,6 +347,27 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
             
         }
         
+    }
+    
+    private void onShow(){
+        
+        java.sql.Connection con = conexao.getConnection();
+   
+ try {
+            String sql = "SELECT * FROM produto where codigo = ?";
+//            
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, CodigoText.getText());  
+            pst.execute();
+            con.commit();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+    
     }
 
 }

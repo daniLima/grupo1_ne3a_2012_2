@@ -10,8 +10,6 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-
-import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,6 +24,7 @@ import javax.swing.JOptionPane;
 public class JDialogCadastroProduto extends javax.swing.JDialog {
     private JDialogProdutoMenu pm = new JDialogProdutoMenu();
     private Conexao conexao = new Conexao();
+//      private ConnectionManager con = new ConnectionManager();
     public static void main(String[] args) {
 
     }
@@ -227,14 +226,22 @@ private void CodigoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_CodigoTextActionPerformed
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-        try {
+     int n = JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastar o Cliente: " + NomeText.getText());
+        if(n==0){
+    
+    try {
             addProduto();
         } catch (Exception ex) {
             Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     JOptionPane.showMessageDialog(rootPane, "Produto: " + NomeText.getText()+ " Cadastrado");
+    int produtoId = Integer.parseInt(CodigoText.getText());
     dispose();
-    new JDialogVisualizarProduto().setVisible(true);
+    new JDialogVisualizarProduto(produtoId).setVisible(true);
+        }
+        else if(n==2){
+        dispose();
+        }
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
 private void QuantidadeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantidadeTextActionPerformed
@@ -277,6 +284,7 @@ private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {
 //            p.setObservacoes( ObservacoesText.getText());
     
         Connection con = conexao.getConnection();
+        
    
  try {
             String sql = "INSERT INTO produto(codigo, nome, descricao, quantidade, observacao) Values (?, ?, ?, ?, ?)";
