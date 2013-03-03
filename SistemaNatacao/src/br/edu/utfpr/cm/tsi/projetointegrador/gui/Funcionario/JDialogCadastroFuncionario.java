@@ -8,7 +8,7 @@
  *
  * Created on 09/02/2013, 00:04:44
  */
-package br.edu.utfpr.cm.tsi.projetointegrador.gui;
+package br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario;
 
 /**
  *
@@ -61,7 +61,7 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
 
         jLabel6.setText("Telefone:");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel1.setText("Cadastro Funcionario:");
 
         jLabel5.setText("Cidade:");
@@ -129,21 +129,15 @@ public class JDialogCadastroFuncionario extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelNome))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabelNome)
+                            .addComponent(jFormattedTextField1Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                            .addComponent(jLabel3))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(30, 30, 30))

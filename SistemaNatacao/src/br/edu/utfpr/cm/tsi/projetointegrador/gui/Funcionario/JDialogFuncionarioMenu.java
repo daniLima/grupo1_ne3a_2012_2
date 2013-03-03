@@ -8,7 +8,7 @@
  *
  * Created on 17/02/2013, 09:43:41
  */
-package br.edu.utfpr.cm.tsi.projetointegrador.gui;
+package br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario;
 
 /**
  *
