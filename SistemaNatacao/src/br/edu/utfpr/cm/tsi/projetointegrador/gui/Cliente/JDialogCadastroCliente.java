@@ -52,13 +52,11 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabel1Telefone = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jFormattedTextCPF = new javax.swing.JFormattedTextField();
         jFormattedTextTelefone = new javax.swing.JFormattedTextField();
         jLabelMatricula = new javax.swing.JLabel();
         jTextMatricula = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
-        jLabelCPF = new javax.swing.JLabel();
         jLabelEndereço = new javax.swing.JLabel();
         jTextEndereco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -69,6 +67,8 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabelEmail = new javax.swing.JLabel();
         jTextEmail = new javax.swing.JTextField();
         jLabelSistemaNadar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jFormattedTextCPF = new javax.swing.JFormattedTextField();
 
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -97,18 +97,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
-
-        try {
-            jFormattedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextCPFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jFormattedTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
 
         try {
             jFormattedTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -141,9 +129,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 350, -1));
-
-        jLabelCPF.setText("CPF:");
-        getContentPane().add(jLabelCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabelEndereço.setText("Endereço:");
         getContentPane().add(jLabelEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
@@ -191,8 +176,23 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabelSistemaNadar.setText("Sistema Nadar ");
         getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
 
+        jLabel1.setText("CPF:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 50, -1));
+
+        try {
+            jFormattedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextCPFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jFormattedTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 100, -1));
+
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-525)/2, (screenSize.height-459)/2, 525, 459);
+        setBounds((screenSize.width-525)/2, (screenSize.height-488)/2, 525, 488);
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
@@ -216,10 +216,6 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
     JOptionPane.showMessageDialog(rootPane, "Cadastro de cliente cancelado");
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextCPFActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextCPFActionPerformed
 
 private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
 // TODO add your handling code here:
@@ -249,6 +245,10 @@ private void jTextCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextCidadeActionPerformed
 
+private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextCPFActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jFormattedTextCPFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,10 +259,10 @@ private void jTextCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JFormattedTextField jFormattedTextCPF;
     private javax.swing.JFormattedTextField jFormattedTextTelefone;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1Telefone;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBairro;
-    private javax.swing.JLabel jLabelCPF;
     private javax.swing.JLabel jLabelCidade;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelEndereço;
@@ -282,7 +282,7 @@ private void jTextCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         Connection con = conexao.getConnection();
    
  try {
-            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?,?, ?, ?, ?, ?,?,?)";
+            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?,?, ?, ?, ?,?,?,?)";
             
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
