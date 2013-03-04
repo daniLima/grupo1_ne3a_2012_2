@@ -91,9 +91,12 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
 
-        jLabelCodigo.setText("Código");
+        jLabelCodigo.setText("Código:");
         getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
+        jTextFieldCodigo.setAutoscrolls(false);
+        jTextFieldCodigo.setEnabled(false);
+        jTextFieldCodigo.setFocusable(false);
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCodigoActionPerformed(evt);
@@ -101,7 +104,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
 
-        jLabel1Nome.setText("Nome");
+        jLabel1Nome.setText("Nome:");
         getContentPane().add(jLabel1Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
 
