@@ -5,7 +5,9 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
+import java.awt.List;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,7 +48,7 @@ public class Sql {
 
     }
 
-    public static boolean ExcluiProduto(String codigo) throws Exception {
+    public static boolean excluiProduto(String codigo) throws Exception {
 
 
 
@@ -65,5 +67,35 @@ public class Sql {
         }
         return true;
 
+    }
+    
+    
+    public static boolean buscarProduto(String codigo){
+      
+        Connection con = new ConnectionManager().Conexao();
+   
+ try {
+            String sql = "SELECT * FROM produto where codigo = ?";
+//            
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, codigo);  
+            pst.execute();
+            con.commit();
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return true;
+        
+    
+    }
+    
+    public static void main(String[] args) {
+        buscarProduto("");
     }
 }

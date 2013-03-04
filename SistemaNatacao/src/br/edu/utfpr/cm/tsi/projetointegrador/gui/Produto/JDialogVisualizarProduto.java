@@ -239,7 +239,7 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
     int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
     if(n==0){
             try {
-                Sql.ExcluiProduto(CodigoText.getText());
+                Sql.excluiProduto(CodigoText.getText());
             } catch (Exception ex) {
                 Logger.getLogger(JDialogVisualizarProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -333,25 +333,6 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
     
     
-    private void onShow(){
-        
-        Connection con = new ConnectionManager().Conexao();
-   
- try {
-            String sql = "SELECT * FROM produto where codigo = ?";
-//            
-            con.setAutoCommit(false);
-            java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, CodigoText.getText());  
-            pst.execute();
-            con.commit();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        
     
-    }
 
 }
