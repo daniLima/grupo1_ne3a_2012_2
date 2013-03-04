@@ -231,7 +231,8 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
         if(n==0){
     
     try {
-            addProduto();
+            Sql.addProduto(CodigoText.getText(),NomeText.getText(),DescricaoText.getText(), 
+                    QuantidadeText.getText(),ObservacoesText.getText());
         } catch (Exception ex) {
             Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -276,40 +277,7 @@ private void ObservacoesTextAncestorAdded(javax.swing.event.AncestorEvent evt) {
 
     
     
-   private void addProduto() throws Exception{
    
-
-
- try {
-     Connection con = new ConnectionManager().Conexao();
-            String sql = "INSERT INTO produto(codigo, nome, descricao, quantidade, observacao) Values (?, ?, ?, ?, ?)";
-            
-            con.setAutoCommit(false);
-            java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, CodigoText.getText());  
-            pst.setString(2, NomeText.getText());  
-            pst.setString(3, DescricaoText.getName());
-            pst.setString(4, QuantidadeText.getText());  
-            pst.setString(5, ObservacoesText.getText()); 
-            pst.execute();
-            
-            con.commit();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(JDialogCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-           
-            
-        
- 
- 
-    }
-   
-   private void set(){
-//   ObservacoesText.setText(p.getObservacoes());
-   
-   }
 
 
 }
