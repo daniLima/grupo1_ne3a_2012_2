@@ -85,7 +85,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCodigo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -94,6 +94,11 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCodigo">
+      <Properties>
+        <Property name="autoscrolls" type="boolean" value="false"/>
+        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodigoActionPerformed"/>
       </Events>
@@ -105,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1Nome">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
