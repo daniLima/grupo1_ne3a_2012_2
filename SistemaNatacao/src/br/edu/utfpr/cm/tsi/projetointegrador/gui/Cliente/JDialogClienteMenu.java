@@ -28,8 +28,8 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
     private Conexao conexao = new Conexao();
 
     /** Creates new form JDialogClienteMenu */
-    public JDialogClienteMenu(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogClienteMenu() {
+        
         initComponents();
     }
 
@@ -83,7 +83,7 @@ public class JDialogClienteMenu extends javax.swing.JDialog {
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jLabelControleCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
+        jLabelControleCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelControleCliente.setText("Controle Cliente");
         getContentPane().add(jLabelControleCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -166,7 +166,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogClienteMenu dialog = new JDialogClienteMenu(new javax.swing.JFrame(), true);
+                JDialogClienteMenu dialog = new JDialogClienteMenu();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
