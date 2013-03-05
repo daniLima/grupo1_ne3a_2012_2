@@ -332,7 +332,7 @@
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="123" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -347,7 +347,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace pref="154" max="32767" attributes="0"/>
+              <EmptySpace pref="148" max="32767" attributes="0"/>
               <Component id="jToolBar2" min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
