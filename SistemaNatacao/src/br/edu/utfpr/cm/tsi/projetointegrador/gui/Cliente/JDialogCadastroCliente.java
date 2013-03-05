@@ -197,16 +197,16 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
        
-       try {
-            addCliente();
+     //  try {
+       //     addCliente();
             
             
-        } catch (Exception ex) {
+      //  } catch (Exception ex) {
             
-            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    JOptionPane.showMessageDialog(rootPane, "Cliente: " + jTextFieldNome.getText()+ " Cadastrado");
-    dispose();
+        //    Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+      //  }
+    //JOptionPane.showMessageDialog(rootPane, "Cliente: " + jTextFieldNome.getText()+ " Cadastrado");
+   // dispose();
 //            new JDialogVisualizarCliente().setVisible(true);
   
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
