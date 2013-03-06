@@ -13,11 +13,11 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogProdutoMenu;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogCadastroCliente;
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogCadastroCliente;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogClienteMenu;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario.JDialogCadastroFuncionario;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario.JDialogFuncionarioMenu;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorario;
+
 
 
 
