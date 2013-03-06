@@ -10,6 +10,7 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
+import java.awt.Dialog;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author Daniele
  */
 public class JDialogVisualizarCliente extends javax.swing.JDialog {
-    Conexao conexao= new Conexao();    
+   // Conexao conexao= new Conexao();    
          
     
        JDialogCadastroCliente cd = new JDialogCadastroCliente();
@@ -28,13 +29,22 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
        
        
        
-    public JDialogVisualizarCliente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+  //  public JDialogVisualizarCliente(java.awt.Frame parent, boolean modal) {
+    //    super(parent, modal);
+      //  initComponents();
+   // }
+
+   public JDialogVisualizarCliente(int ClienteId){
+       setLocation(250,100);
+       initComponents();
+   }
+       
+       
+   private JDialogVisualizarCliente( ) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
-   // JDialogVisualizarCliente() {
-     //   throw new UnsupportedOperationException("Not yet implemented");
+   
   //  }
 
     /** This method is called from within the constructor to
@@ -51,13 +61,13 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jLabelCodigo = new javax.swing.JLabel();
-        jTextFieldCodigo = new javax.swing.JTextField();
+        jTextMatricula = new javax.swing.JTextField();
         jLabel1Nome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelEndereco = new javax.swing.JLabel();
         jLabelTelefone = new javax.swing.JLabel();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
+        jLabelMatricula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,6 +75,12 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
         VisualizaCliente.setText("Visualizar Cliente");
         getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jTextFieldEndereço.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEndereçoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldEndereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, -1));
 
         jButtonEditar.setText("Editar");
@@ -91,21 +107,24 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
 
-        jLabelCodigo.setText("Código:");
-        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        jTextFieldCodigo.setAutoscrolls(false);
-        jTextFieldCodigo.setEnabled(false);
-        jTextFieldCodigo.setFocusable(false);
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        jTextMatricula.setAutoscrolls(false);
+        jTextMatricula.setEnabled(false);
+        jTextMatricula.setFocusable(false);
+        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
+                jTextMatriculaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
+        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
 
         jLabel1Nome.setText("Nome:");
         getContentPane().add(jLabel1Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
 
         jLabelEndereco.setText("Endereço:");
@@ -119,25 +138,40 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldTelefoneActionPerformed(evt);
+            }
+        });
         getContentPane().add(jFormattedTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 110, -1));
+
+        jLabelMatricula.setText("Matricula");
+        getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 // TODO add your handling code here:
+    int n= JOptionPane.showConfirmDialog(rootPane,"Deseja editar o Cadastro do cliente?");
+       if(n ==0){
+           dispose();
+           new JDialogConsultaCliente().setVisible(true);
+       }
+    
+    
 }//GEN-LAST:event_jButtonEditarActionPerformed
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
 // TODO add your handling code here:
-        int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+        int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir Cliente "+jTextFieldNome.getText());
     if(n==0){
             try {
-                ExcluirCliente();
+                Sql.excluirCliente(jTextMatricula.getText());//ExcluirCliente();
             } catch (Exception ex) {
                 Logger.getLogger(JDialogVisualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(rootPane, "Produto " + jTextFieldNome.getText() + " Excluido");
+            JOptionPane.showMessageDialog(rootPane, "Cliente " + jTextFieldNome.getText() + "Foi excluido com sucesso");
             dispose();
     }
     
@@ -149,9 +183,21 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldCodigoActionPerformed
+}//GEN-LAST:event_jTextMatriculaActionPerformed
+
+private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+private void jTextFieldEndereçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEndereçoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldEndereçoActionPerformed
+
+private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,7 +230,7 @@ private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogVisualizarCliente dialog = new JDialogVisualizarCliente(new javax.swing.JFrame(), true);
+                JDialogVisualizarCliente dialog = new JDialogVisualizarCliente();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
@@ -203,36 +249,36 @@ private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabel1Nome;
-    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelEndereco;
+    private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelTelefone;
-    private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldEndereço;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextMatricula;
     // End of variables declaration//GEN-END:variables
 
 
 
 
- private void ExcluirCliente() throws Exception{
+ //private void ExcluirCliente() throws Exception{
     
-        java.sql.Connection con = conexao.getConnection();
+   //     java.sql.Connection con = conexao.getConnection();
    
- try {
-            String sql = "DELETE FROM cliente where codigo = ?";
+// try {
+  //          String sql = "DELETE FROM cliente where codigo = ?";
            
-            con.setAutoCommit(false);
-            java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, jLabelCodigo.getText());  
-            pst.execute();
-            con.commit();
+    //        con.setAutoCommit(false);
+      //      java.sql.PreparedStatement pst = con.prepareStatement(sql);
+        //    pst.setString(1, jLabelCodigo.getText());  
+          //  pst.execute();
+            //con.commit();
             
-        } catch (SQLException ex) {
-            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        //} catch (SQLException ex) {
+          //  Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
             
-        }
+       // }
         
-    }
+    //}
 }
 
 

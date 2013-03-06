@@ -55,8 +55,7 @@ public class Sql {
     public static boolean excluirCliente(String matricula) throws Exception{
         try{
             
-            String sql="Delete FROM cliente where matricula = ?";
-            
+            String sql="Delete FROM cliente where matricula = ?";          
             
             
             
@@ -65,10 +64,9 @@ public class Sql {
             
             
             pst.setString(1, matricula);
-            pst.execute();
-            
-            
+            pst.execute();           
             con.commit();
+            
         }catch (SQLException ex){
             Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE,null,ex);
         }
