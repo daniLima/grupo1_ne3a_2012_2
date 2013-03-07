@@ -2,7 +2,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Produto/JDialogVisualizarProduto.java</file>
-        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Cliente/JDialogVisualizarCliente.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Horario/JDialogCadastrodeHorario.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Principal.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Cliente/JDialogCadastroCliente.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/JDialogAjuda.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/JDialogContato.java</file>
+        <file>file:/C:/Users/Daniele/Documents/grupo1_ne3a_2012_2/SistemaNatacao/src/br/edu/utfpr/cm/tsi/projetointegrador/gui/Horario/JDialogHorariosFixos.java</file>
     </open-files>
 </project-private>
