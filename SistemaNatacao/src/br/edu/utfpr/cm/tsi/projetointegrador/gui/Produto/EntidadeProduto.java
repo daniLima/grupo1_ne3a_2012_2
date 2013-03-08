@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Douglas Santiago
  */
 
-    public class Produto implements Serializable {
+    public class EntidadeProduto implements Serializable {
   
     private Long Id;
     private String codigo;
