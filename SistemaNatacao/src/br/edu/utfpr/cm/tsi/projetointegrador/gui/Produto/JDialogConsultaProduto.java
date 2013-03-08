@@ -10,6 +10,11 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
+
+
+import java.awt.List;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,11 +24,14 @@ import javax.swing.table.DefaultTableModel;
 public class JDialogConsultaProduto extends javax.swing.JDialog {
 
     DefaultTableModel model;
+    EntidadeProduto produto = new EntidadeProduto();
+    ArrayList p = new ArrayList();
 
     /**
      * Creates new form JDialogConsultaProduto
      */
     public JDialogConsultaProduto() {
+        super.setLocation(350, 150);
         initComponents();
         criaTabela();
     }
@@ -39,7 +47,7 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        nome = new javax.swing.JTextField();
+        codigoJtext = new javax.swing.JTextField();
         jButtonExcluir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButtonOK = new javax.swing.JButton();
@@ -53,9 +61,9 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
 
         jLabel4.setText("Codigo");
 
-        nome.addActionListener(new java.awt.event.ActionListener() {
+        codigoJtext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
+                codigoJtextActionPerformed(evt);
             }
         });
 
@@ -80,17 +88,6 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,7 +109,7 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(33, 33, 33)
-                            .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codigoJtext, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(jButton3)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -134,7 +131,7 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
                     .addGap(8, 8, 8)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel4)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codigoJtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(434, 434, 434)))
         );
@@ -142,9 +139,9 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+private void codigoJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoJtextActionPerformed
     // TODO add your handling code here:
-}//GEN-LAST:event_nomeActionPerformed
+}//GEN-LAST:event_codigoJtextActionPerformed
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
 
@@ -152,6 +149,7 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
 }//GEN-LAST:event_jButtonExcluirActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        preenchetabela();
     // TODO add your handling code here:
 //        String pesquisa = nome.getText();
 //        String pesquisa1 = control.pesquisaPessoa.pesquisa(pesquisa);
@@ -205,6 +203,7 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField codigoJtext;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonOK;
@@ -212,7 +211,6 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField nome;
     // End of variables declaration//GEN-END:variables
 
     private void criaTabela() {
@@ -224,23 +222,46 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         };
         jTable1.setModel(model);
     }
-    
-//    private void preenchetabela() {
-//        model.setNumRows(0);
-//        try {
-//            ArrayList<Produtos> lista = BebidaDAO.findPorNome("%" + jTextFieldNome.getText() + "%");
-//            for (Bebida bebida : lista) {
-//                model.addRow(new Object[]{bebida.getId(),
-//                            bebida.getNome(),
-//                            bebida.getQtde(),
-//                            bebida.getTipo(),
-//                            bebida.getPreco(),
-//                            Utilitarios.dataISOtoBR(bebida.getDataValidade().toString())});
-//
-//            }
-//            jTable1.updateUI();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+
+    private void preenchetabela() {
+        model.setNumRows(0);
+        try {
+            
+            
+            pesquisaProduto.pesquisa(codigoJtext.getText());
+            
+            DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+//            String codigo = produto.getCodigo();
+//            String nome = produto.getNome();
+//            String descricao = produto.getDescricao();
+//            String quantidade = produto.getQuantidade(); 
+//            String observacoes = produto.getObservacoes();
+
+            tableModel.addRow(new Object[]{produto.getCodigo(), produto.getNome(),
+            produto.getDescricao(),produto.getQuantidade() ,produto.getObservacoes()});
+            jTable1.setModel(tableModel);
+
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro na busca do banco");
+
+        }
+    }
 }
+//cliente = daoCliente.selectNome(jTFNome.getText());
+//
+//DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+//
+//int id = cliente.getId();
+//String nome = cliente.getNome();
+//String cpf = cliente.getCpf();
+//String rg = cliente.getRg();
+//String telefone = cliente.getTelefone();
+//
+//
+//tableModel.addRow(new Object[]{id,nome,cpf, rg, telefone});
+//
+//
+//jTable1.setModel(tableModel);
+

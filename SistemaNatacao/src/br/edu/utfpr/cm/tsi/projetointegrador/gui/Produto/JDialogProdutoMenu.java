@@ -28,7 +28,7 @@ public class JDialogProdutoMenu extends javax.swing.JDialog {
     private static String descricao;
     private static String quantidade;
     private static String observacao;
-    private Produto p = new Produto();
+    private EntidadeProduto p = new EntidadeProduto();
 
     /**
      * Creates new form JDialogCadastrarProduto

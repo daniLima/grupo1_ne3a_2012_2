@@ -20,7 +20,7 @@ public class pesquisaProduto {
 
 
     public static  String pesquisa(String id) {
-          Produto p = new Produto();
+          EntidadeProduto p = new EntidadeProduto();
         try {
            Connection con = new ConnectionManager().Conexao();
 
