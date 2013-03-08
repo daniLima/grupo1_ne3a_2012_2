@@ -10,9 +10,8 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-import java.sql.Connection;
-import java.sql.SQLException;
+
+import java.awt.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,10 +21,14 @@ import javax.swing.JOptionPane;
  * @author Douglas Santiago
  */
 public class JDialogVisualizarProduto extends javax.swing.JDialog {
+   
  
    
     /** Creates new form JDialogVisualizarProduto */
     public JDialogVisualizarProduto(int produtoId) {
+        
+        // mudar essa merda para funcionar o trem do visualizarr ??????????????w
+//        List n = JDialogCadastroProduto.buscar(null, null, null, null, null);
         setLocation(250, 100);
         
         initComponents();
@@ -240,6 +243,7 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
     if(n==0){
             try {
                 Sql.excluiProduto(CodigoText.getText());
+                
             } catch (Exception ex) {
                 Logger.getLogger(JDialogVisualizarProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -331,8 +335,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    
-    
+    }
     
 
-}
+
