@@ -15,18 +15,18 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
     public class EntidadeProduto{
   
     
-    private String codigo;
+    private int codigo;
     private String nome;
     private String descricao;
     private String observacoes;
     private String quantidade;
 
     
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

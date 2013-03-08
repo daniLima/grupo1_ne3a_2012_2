@@ -11,6 +11,11 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -221,27 +226,83 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     }
 
     private void preenchetabela() {
-        EntidadeProduto produto = new EntidadeProduto();
+//        EntidadeProduto produto = new EntidadeProduto();
         model.setNumRows(0);
+//            pesquisaProduto.pesquisa(Integer.parseInt(codigoJtext.getText()));
+            
+//            System.out.println("antes do try ===>>cod " + produto.getCodigo() + " nome: " + produto.getNome());
+            
+            Connection con = new ConnectionManager().Conexao();
         try {
             
-           
-            pesquisaProduto.pesquisa(codigoJtext.getText());
             
             DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
-            
-//            System.out.println("cod: " + produto.getCodigo() + " nome: " + produto.getNome());
 
-            tableModel.addRow(new Object[]{produto.getCodigo(), produto.getNome(),
-            produto.getDescricao(),produto.getQuantidade() ,produto.getObservacoes()});
+            
+            
+            
+
+
+            String sql = "SELECT * FROM produto WHERE produto.codigo like '" + Integer.parseInt(codigoJtext.getText()) + "';";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                
+               
+                
+//                p.setCodigo(rs.getInt("codigo"));
+//                p.setDescricao(rs.getString("descricao"));
+//                p.setNome(rs.getString("nome"));
+//                p.setQuantidade(rs.getString("quantidade"));
+//                p.setObservacoes(rs.getString("observacao"));
+            tableModel.addRow(new Object[]{rs.getInt("codigo"), rs.getString("nome"),rs.getString("descricao"),
+                    rs.getString("quantidade"), rs.getString("observacao")});
             jTable1.setModel(tableModel);
-
             
+                con.close();
+
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro na busca do banco");
 
         }
+    
+    }
+    
+    public static void pesquisa(int id) {
+        
+        
+//        try {
+//            Connection con = new ConnectionManager().Conexao();
+//
+//
+//            String sql = "SELECT * FROM produto WHERE produto.codigo like '" + id + "';";
+//
+//            PreparedStatement pst = con.prepareStatement(sql);
+//
+//            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                
+//               
+//                
+//                p.setCodigo(rs.getInt("codigo"));
+//                p.setDescricao(rs.getString("descricao"));
+//                p.setNome(rs.getString("nome"));
+//                p.setQuantidade(rs.getString("quantidade"));
+//                p.setObservacoes(rs.getString("observacao"));
+//                con.close();
+//
+//
+//            }
+//
+//        } catch (SQLException ex) {
+////            Logger.getLogger(DAOPessoaFisica.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+
     }
 }
 

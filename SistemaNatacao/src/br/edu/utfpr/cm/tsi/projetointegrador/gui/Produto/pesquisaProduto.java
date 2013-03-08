@@ -5,7 +5,6 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +16,9 @@ import java.sql.SQLException;
  */
 public class pesquisaProduto {
 
-    public static void pesquisa(String id) {
+    public static void pesquisa(int id) {
         
-        EntidadeProduto p;
+        EntidadeProduto p = new EntidadeProduto();
         try {
             Connection con = new ConnectionManager().Conexao();
 
@@ -30,15 +29,14 @@ public class pesquisaProduto {
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                p = new EntidadeProduto();
+                
                
                 
-                p.setCodigo(rs.getString("codigo"));
+                p.setCodigo(rs.getInt("codigo"));
                 p.setDescricao(rs.getString("descricao"));
                 p.setNome(rs.getString("nome"));
                 p.setQuantidade(rs.getString("quantidade"));
                 p.setObservacoes(rs.getString("observacao"));
-                
                 con.close();
 
 
