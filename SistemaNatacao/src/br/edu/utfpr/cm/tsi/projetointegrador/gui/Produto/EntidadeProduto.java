@@ -4,7 +4,7 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-import java.io.Serializable;
+
 
 
 /**
@@ -12,23 +12,16 @@ import java.io.Serializable;
  * @author Douglas Santiago
  */
 
-    public class EntidadeProduto implements Serializable {
+    public class EntidadeProduto{
   
-    private Long Id;
+    
     private String codigo;
     private String nome;
     private String descricao;
     private String observacoes;
     private String quantidade;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long Id) {
-        this.Id = Id;
-    }
-
+    
     public String getCodigo() {
         return codigo;
     }

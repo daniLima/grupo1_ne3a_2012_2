@@ -11,9 +11,6 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 
-
-import java.awt.List;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,8 +21,8 @@ import javax.swing.table.DefaultTableModel;
 public class JDialogConsultaProduto extends javax.swing.JDialog {
 
     DefaultTableModel model;
-    EntidadeProduto produto = new EntidadeProduto();
-    ArrayList p = new ArrayList();
+    
+   
 
     /**
      * Creates new form JDialogConsultaProduto
@@ -224,18 +221,16 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     }
 
     private void preenchetabela() {
+        EntidadeProduto produto = new EntidadeProduto();
         model.setNumRows(0);
         try {
             
-            
+           
             pesquisaProduto.pesquisa(codigoJtext.getText());
             
             DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
-//            String codigo = produto.getCodigo();
-//            String nome = produto.getNome();
-//            String descricao = produto.getDescricao();
-//            String quantidade = produto.getQuantidade(); 
-//            String observacoes = produto.getObservacoes();
+            
+//            System.out.println("cod: " + produto.getCodigo() + " nome: " + produto.getNome());
 
             tableModel.addRow(new Object[]{produto.getCodigo(), produto.getNome(),
             produto.getDescricao(),produto.getQuantidade() ,produto.getObservacoes()});
@@ -249,19 +244,4 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
 }
-//cliente = daoCliente.selectNome(jTFNome.getText());
-//
-//DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
-//
-//int id = cliente.getId();
-//String nome = cliente.getNome();
-//String cpf = cliente.getCpf();
-//String rg = cliente.getRg();
-//String telefone = cliente.getTelefone();
-//
-//
-//tableModel.addRow(new Object[]{id,nome,cpf, rg, telefone});
-//
-//
-//jTable1.setModel(tableModel);
 

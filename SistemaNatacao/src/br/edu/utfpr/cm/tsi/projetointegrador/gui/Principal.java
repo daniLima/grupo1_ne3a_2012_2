@@ -11,6 +11,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogCadastroProduto;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogConsultaProduto;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto.JDialogProdutoMenu;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogCadastroCliente;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogClienteMenu;
@@ -519,7 +520,7 @@ private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt
 }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
 
 private void ProdutoConsButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutoConsButActionPerformed
-    new JDialogProdutoMenu().setVisible(true);
+    new JDialogConsultaProduto().setVisible(true);
     // TODO add your handling code here:
 }//GEN-LAST:event_ProdutoConsButActionPerformed
 
