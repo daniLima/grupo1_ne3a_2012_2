@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
 public class JDialogCadastroProduto extends javax.swing.JDialog {
 
     private JDialogVisualizarProduto p;
-    private JDialogProdutoMenu pm = new JDialogProdutoMenu();
 
 //      private ConnectionManager con = new ConnectionManager();
     public static void main(String[] args) {
@@ -218,7 +217,7 @@ private void DescricaoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 }//GEN-LAST:event_DescricaoTextActionPerformed
 
 private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-    JOptionPane.showMessageDialog(rootPane, "Cancelado");
+
     dispose();
     // TODO add your handling code here:
 }//GEN-LAST:event_jButtonCancelarActionPerformed
