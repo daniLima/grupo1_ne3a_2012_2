@@ -10,10 +10,10 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-import com.mysql.jdbc.PreparedStatement;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -217,11 +217,24 @@ private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GE
                 
                 
                 
-            tableModel.addRow(new Object[]{rs.getInt("matricula"),rs.getString    
+            tableModel.addRow(new Object[]{rs.getInt("matricula"),rs.getString("nome"),rs.getString("CPF")
+                    ,rs.getString("endereço"),rs.getString("bairro"),rs.getString("telefone"),rs.getString("cidade"),
+                    rs.getString("email")});
+               jTable1.setModel(tableModel);
+               
+                 con.close();
+                 
+            }
+                    
+            } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Erro busca banco");
                 
             }
                    
             
         }
     }
-}
+
+
+
+

@@ -12,6 +12,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,6 +21,17 @@ import javax.swing.JOptionPane;
  *
  * @author Daniele
  */
+
+
+
+
+
+
+
+
+
+
+
 public class JDialogCadastroCliente extends javax.swing.JDialog {
     
     private Conexao conexao=new Conexao();
@@ -219,6 +231,9 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
         JOptionPane.showMessageDialog(rootPane,"Cliente: "+  jTextNome.getText()+  "\n Cadastrado com sucesso!");
         int clienteId=Integer.parseInt(jFormattedTextMatricula.getText());
         dispose();
+        buscar(jFormattedTextMatricula.getText(),jTextNome.getText(),jFormattedTextCPF.getText(),
+                jTextEndereco.getText(),jTextBairro.getText(),jFormattedTextTelefone.getText(),
+                jTextCidade.getText(),jTextEmail.getText());
         
         new JDialogVisualizarCliente(clienteId).setVisible(true);
         }
@@ -307,6 +322,25 @@ private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent e
     private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 
+    
+    public static List buscar(String matricula,String nome,String CPF,String endereço, String bairro,
+      String telefone, String cidade, String email){
+
+            List lista=null;
+            lista.add(matricula);
+            lista.add(CPF);
+            lista.add(endereço);
+            lista.add(bairro);
+            lista.add(telefone);
+            lista.add(cidade);
+            lista.add(email);
+            return lista;
+    
+    
+    
+    
+    
+    
 // private void addCliente() throws Exception{
     
   //      Connection con = conexao.getConnection();
@@ -342,6 +376,8 @@ private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent e
 
 }
 
+ 
+}
 
     
     
