@@ -54,7 +54,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jButtonCancelar = new javax.swing.JButton();
         jFormattedTextTelefone = new javax.swing.JFormattedTextField();
         jLabelMatricula = new javax.swing.JLabel();
-        jTextMatricula = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
         jTextNome = new javax.swing.JTextField();
         jLabelEndereço = new javax.swing.JLabel();
@@ -69,6 +68,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabelSistemaNadar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jFormattedTextCPF = new javax.swing.JFormattedTextField();
+        jFormattedTextMatricula = new javax.swing.JFormattedTextField();
 
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -112,13 +112,6 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
 
         jLabelMatricula.setText("Matricula:");
         getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMatriculaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
 
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -191,16 +184,28 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jFormattedTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 100, -1));
 
+        try {
+            jFormattedTextMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextMatriculaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jFormattedTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, -1));
+
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-525)/2, (screenSize.height-488)/2, 525, 488);
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
        
-    int pos=JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar o cliente "+jTextNome.getText());
+    int pos=JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar o cliente:  "  +jTextNome.getText()+"?");
     if(pos == 0){
         try {
-            Sql.addCliente(jTextMatricula.getText(),
+            Sql.addCliente(jFormattedTextMatricula.getText(),
                            jTextNome.getText(),
                            jFormattedTextCPF.getText(),
                            jTextEndereco.getText(),
@@ -211,8 +216,8 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
         } catch (Exception ex){
             Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE,null, ex);
         }
-        JOptionPane.showMessageDialog(rootPane,"Cliente"+jTextNome.getText()+"Cadastrado");
-        int clienteId=Integer.parseInt(jTextMatricula.getText());
+        JOptionPane.showMessageDialog(rootPane,"Cliente: "+  jTextNome.getText()+  "\n Cadastrado com sucesso!");
+        int clienteId=Integer.parseInt(jFormattedTextMatricula.getText());
         dispose();
         
         new JDialogVisualizarCliente(clienteId).setVisible(true);
@@ -237,7 +242,7 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
 }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
 private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-// TODO add your handling code here:
+// TODO add your handling code here:  
     JOptionPane.showMessageDialog(rootPane, "Cadastro de cliente cancelado");
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
@@ -249,10 +254,6 @@ private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 private void jTextEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEmailActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextEmailActionPerformed
-
-private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jTextMatriculaActionPerformed
 
 private void jTextEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEnderecoActionPerformed
 // TODO add your handling code here:
@@ -274,6 +275,10 @@ private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {/
 // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextCPFActionPerformed
 
+private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextMatriculaActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jFormattedTextMatriculaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,6 +288,7 @@ private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JFormattedTextField jFormattedTextCPF;
+    private javax.swing.JFormattedTextField jFormattedTextMatricula;
     private javax.swing.JFormattedTextField jFormattedTextTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1Telefone;
@@ -298,42 +304,41 @@ private void jFormattedTextCPFActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JTextField jTextCidade;
     private javax.swing.JTextField jTextEmail;
     private javax.swing.JTextField jTextEndereco;
-    private javax.swing.JTextField jTextMatricula;
     private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 
- private void addCliente() throws Exception{
+// private void addCliente() throws Exception{
     
-        Connection con = conexao.getConnection();
+  //      Connection con = conexao.getConnection();
    
- try {
-            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?,?, ?, ?, ?,?,?,?)";
+ //try {
+   //         String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?,?, ?, ?, ?,?,?,?)";
             
-            con.setAutoCommit(false);
-            java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, jTextMatricula.getText());
-            pst.setString(2, jTextNome.getText());  
-            pst.setString(3, jFormattedTextCPF.getText());
-            pst.setString(4, jTextEndereco.getText());
-            pst.setString(5, jTextBairro.getText());
-            pst.setString(6, jFormattedTextTelefone.getText());
-            pst.setString(7, jTextCidade.getText());
-            pst.setString(8, jTextEmail.getText());
-            pst.execute();
+     //       con.setAutoCommit(false);
+       //     java.sql.PreparedStatement pst = con.prepareStatement(sql);
+         //   pst.setString(1, jFormattedTextMatricula.getText());
+           // pst.setString(2, jTextNome.getText());  
+        //    pst.setString(3, jFormattedTextCPF.getText());
+          //  pst.setString(4, jTextEndereco.getText());
+         //   pst.setString(5, jTextBairro.getText());
+         //   pst.setString(6, jFormattedTextTelefone.getText());
+         //   pst.setString(7, jTextCidade.getText());
+         //   pst.setString(8, jTextEmail.getText());
+        //    pst.execute();
             
-            con.commit();
+          //  con.commit();
             
-        } catch (SQLException ex) {
-            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+    //    } catch (SQLException ex) {
+      //      Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
             
-        }
+       // }
  
-            }
+         //   }
  
-        private void set(){
+       // private void set(){
       
         
-    }
+   // }
 
 }
 

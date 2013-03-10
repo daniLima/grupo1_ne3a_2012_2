@@ -241,7 +241,7 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
         int produtoId = Integer.parseInt(CodigoText.getText());
         dispose();
         buscar(CodigoText.getText(), NomeText.getText(), DescricaoText.getText(), QuantidadeText.getText(), ObservacoesText.getText());
-        new JDialogVisualizarProduto(produtoId).setVisible(true);
+       new JDialogVisualizarProduto(produtoId).setVisible(true);
 //    p.buscar(Integer.parseInt(CodigoText.getText()));
     } else if (n == 2) {
         dispose();

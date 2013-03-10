@@ -9,22 +9,33 @@
  * Created on 24/02/2013, 20:21:10
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
+import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
+import com.mysql.jdbc.PreparedStatement;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author Daniele
  */
 public class JDialogConsultaCliente extends javax.swing.JDialog {
+    
+    
+    DefaultTableModel model;
 
     /** Creates new form JDialogConsultaCliente */
-    public JDialogConsultaCliente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogConsultaCliente() {
+      super.setLocation(350, 180);
         initComponents();
+       criaTabela();
     }
 
-    JDialogConsultaCliente() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+    //JDialogConsultaCliente() {
+      //  throw new UnsupportedOperationException("Not yet implemented");
+    //}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -37,14 +48,14 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
 
         ConsultaClientes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabelNome = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextMatricula = new javax.swing.JTextField();
         jButtonPesquisar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTabela = new javax.swing.JTable();
-        jButtonOk = new javax.swing.JButton();
-        jButtonFechar = new javax.swing.JButton();
         jLabelSistemaNadar = new javax.swing.JLabel();
+        jLabelMatricula = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButtonOk = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Consulta Clientes"); // NOI18N
@@ -55,58 +66,70 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         getContentPane().add(ConsultaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 0));
 
-        jLabelNome.setText("Nome");
-        getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 360, -1));
+        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextMatriculaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 360, -1));
 
         jButtonPesquisar.setText("Pesquisar");
-        getContentPane().add(jButtonPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
+        getContentPane().add(jButtonPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
 
-        jTableTabela.setModel(new javax.swing.table.DefaultTableModel(
+        jLabelSistemaNadar.setText("Sistema Nadar");
+        getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, -1));
+
+        jLabelMatricula.setText("Matrícula:");
+        getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTableTabela);
+        jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 570, 290));
 
-        jButtonOk.setText("OK");
+        jButtonOk.setText("Ok");
         jButtonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOkActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 80, -1));
+        getContentPane().add(jButtonOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 60, -1));
 
-        jButtonFechar.setText("Fechar");
-        jButtonFechar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFecharActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
-
-        jLabelSistemaNadar.setText("Sistema Nadar");
-        getContentPane().add(jLabelSistemaNadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, -1));
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
 // TODO add your handling code here:
+    dispose();
 }//GEN-LAST:event_jButtonOkActionPerformed
 
-private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
+private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
 // TODO add your handling code here:
     dispose();
-}//GEN-LAST:event_jButtonFecharActionPerformed
+}//GEN-LAST:event_jButtonExcluirActionPerformed
+
+private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
+// TODO add your handling code here:
+    preencheTabela();
+}//GEN-LAST:event_jTextMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +162,7 @@ private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                JDialogConsultaCliente dialog = new JDialogConsultaCliente(new javax.swing.JFrame(), true);
+                JDialogConsultaCliente dialog = new JDialogConsultaCliente();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
@@ -153,14 +176,52 @@ private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConsultaClientes;
-    private javax.swing.JButton jButtonFechar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonOk;
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelSistemaNadar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableTabela;
-    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextMatricula;
     // End of variables declaration//GEN-END:variables
+
+    private void criaTabela() {
+       // throw new UnsupportedOperationException("Not yet implemented");
+        model = new DefaultTableModel(new String[]{"matricula","nome","CPF","endereço","bairro","telefone","cidade","email"},0){
+              public boolean isCellEditable(int row ,int column){
+                  return false;
+              }
+           };
+        jTable1.setModel(model);
+    }
+
+    private void preencheTabela() {
+       // throw new UnsupportedOperationException("Not yet implemented");
+        
+        model.setNumRows(0);
+        
+        Connection con=new ConnectionManager().Conexao();
+        try{
+            
+            
+            DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+            
+            String sql ="SELECT FROM cliente WHERE cliente.matricula. like  " +Integer.parseInt(jTextMatricula.getText())+";";
+            
+            PreparedStatement pst=con.prepareStatement(sql);
+            
+            ResultSet rs= pst.executeQuery();
+            if(rs.next()){
+                
+                
+                
+            tableModel.addRow(new Object[]{rs.getInt("matricula"),rs.getString    
+                
+            }
+                   
+            
+        }
+    }
 }

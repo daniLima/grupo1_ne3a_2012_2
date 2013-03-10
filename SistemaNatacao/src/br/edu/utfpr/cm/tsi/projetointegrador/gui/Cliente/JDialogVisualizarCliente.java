@@ -10,8 +10,6 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
-import java.awt.Dialog;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,13 +59,13 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jTextMatricula = new javax.swing.JTextField();
         jLabel1Nome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelEndereco = new javax.swing.JLabel();
         jLabelTelefone = new javax.swing.JLabel();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jLabelMatricula = new javax.swing.JLabel();
+        jFormattedTextMatricula = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,16 +105,6 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
 
-        jTextMatricula.setAutoscrolls(false);
-        jTextMatricula.setEnabled(false);
-        jTextMatricula.setFocusable(false);
-        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMatriculaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
-
         jLabel1Nome.setText("Nome:");
         getContentPane().add(jLabel1Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
@@ -148,6 +136,18 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         jLabelMatricula.setText("Matricula");
         getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
+        try {
+            jFormattedTextMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextMatriculaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jFormattedTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,7 +156,7 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     int n= JOptionPane.showConfirmDialog(rootPane,"Deseja editar o Cadastro do cliente?");
        if(n ==0){
            dispose();
-           new JDialogConsultaCliente().setVisible(true);
+          // new JDialogConsultaCliente().setVisible(true);
        }
     
     
@@ -167,11 +167,11 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
         int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir Cliente "+jTextFieldNome.getText());
     if(n==0){
             try {
-                Sql.excluirCliente(jTextMatricula.getText());//ExcluirCliente();
+                Sql.excluirCliente(jFormattedTextMatricula.getText());//ExcluirCliente();
             } catch (Exception ex) {
                 Logger.getLogger(JDialogVisualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(rootPane, "Cliente " + jTextFieldNome.getText() + "Foi excluido com sucesso");
+            JOptionPane.showMessageDialog(rootPane, "Cliente " + jTextFieldNome.getText() + "Foi excluido com sucesso!");
             dispose();
     }
     
@@ -182,10 +182,6 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
 // TODO add your handling code here:
     dispose();
 }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jTextMatriculaActionPerformed
 
 private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
 // TODO add your handling code here:
@@ -198,6 +194,10 @@ private void jTextFieldEndereçoActionPerformed(java.awt.event.ActionEvent evt) 
 private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
+
+private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextMatriculaActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jFormattedTextMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,13 +248,13 @@ private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEve
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
+    private javax.swing.JFormattedTextField jFormattedTextMatricula;
     private javax.swing.JLabel jLabel1Nome;
     private javax.swing.JLabel jLabelEndereco;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JTextField jTextFieldEndereço;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextMatricula;
     // End of variables declaration//GEN-END:variables
 
 
