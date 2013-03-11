@@ -5,7 +5,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorario;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -27,7 +27,7 @@ public class Sql {
         try {
 
 
-            String sql = "Insert into cliente(matricula,nome,cpf,endereço,bairro,telefone,cidade,email) Values (?,?,?,?,?,?,?,?";
+            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereço,bairro,telefone,cidade,email) Values (?, ?, ?, ?, ?, ?, ?, ?";
 
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
@@ -47,29 +47,70 @@ public class Sql {
         }
         return true;
     }
-    
-    
-    
-    
-    
-    public static boolean excluirCliente(String matricula) throws Exception{
-        try{
-            
-            String sql="Delete FROM cliente where matricula = ?";          
-            
-            
-            
+
+    public static boolean excluirCliente(String matricula) throws Exception {
+        try {
+
+            String sql = "DELETE FROM cliente where matricula = ?";
+
+
+
             con.setAutoCommit(false);
-            java.sql.PreparedStatement pst=con.prepareStatement(sql);
-            
-            
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+
+
             pst.setString(1, matricula);
-            pst.execute();           
+            pst.execute();
             con.commit();
-            
-        }catch (SQLException ex){
-            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE,null,ex);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+    }
+
+    public static boolean buscarCliente(String matricula) {
+
+
+        Connection con = new ConnectionManager().Conexao();
+
+        try {
+
+            String sql = "SELECT * FROM cliente where matricula = ? ";
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, matricula);
+            pst.execute();
+            con.commit();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+
+
+    }
+
+    public static boolean addHorario(String matricula, String nome, String horario) throws Exception {
+
+        try {
+            String sql = "INSERT INTO horario ( matricula, nome,horario)Values (?, ?,?)";
+
+            con.setAutoCommit(false);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, matricula);
+            pst.setString(2, nome);
+            pst.setString(3, horario);
+
+            con.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogCadastrodeHorario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        buscarCliente(" ");
     }
 }

@@ -65,7 +65,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         jLabelTelefone = new javax.swing.JLabel();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jLabelMatricula = new javax.swing.JLabel();
-        jFormattedTextMatricula = new javax.swing.JFormattedTextField();
+        jTextMatricula = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,18 +135,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
 
         jLabelMatricula.setText("Matricula");
         getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        try {
-            jFormattedTextMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextMatriculaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jFormattedTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 80, -1));
+        getContentPane().add(jTextMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 70, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,7 +156,7 @@ private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GE
         int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir Cliente "+jTextFieldNome.getText());
     if(n==0){
             try {
-                Sql.excluirCliente(jFormattedTextMatricula.getText());//ExcluirCliente();
+                Sql.excluirCliente(jTextMatricula.getText());//ExcluirCliente();
             } catch (Exception ex) {
                 Logger.getLogger(JDialogVisualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -194,10 +183,6 @@ private void jTextFieldEndereçoActionPerformed(java.awt.event.ActionEvent evt) 
 private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
-
-private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextMatriculaActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,13 +233,13 @@ private void jFormattedTextMatriculaActionPerformed(java.awt.event.ActionEvent e
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
-    private javax.swing.JFormattedTextField jFormattedTextMatricula;
     private javax.swing.JLabel jLabel1Nome;
     private javax.swing.JLabel jLabelEndereco;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JTextField jTextFieldEndereço;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextMatricula;
     // End of variables declaration//GEN-END:variables
 
 

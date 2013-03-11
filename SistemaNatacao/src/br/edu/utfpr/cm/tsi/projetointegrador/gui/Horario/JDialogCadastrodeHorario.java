@@ -10,6 +10,13 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario;
 
+
+import com.sun.istack.internal.logging.Logger;
+import java.util.logging.Level;
+import javax.swing.JOptionPane;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.Sql;
+
+
 /**
  *
  * @author Daniele
@@ -39,6 +46,8 @@ public class JDialogCadastrodeHorario extends javax.swing.JDialog {
         jTextNome = new javax.swing.JTextField();
         jLabelHorario = new javax.swing.JLabel();
         jFormattedTextHorario = new javax.swing.JFormattedTextField();
+        jButtonConfirmar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -67,6 +76,20 @@ public class JDialogCadastrodeHorario extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
+        jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,7 +109,11 @@ public class JDialogCadastrodeHorario extends javax.swing.JDialog {
                         .addComponent(jLabelHorario)
                         .addGap(18, 18, 18)
                         .addComponent(jFormattedTextHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelControleHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelControleHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonConfirmar)
+                        .addGap(93, 93, 93)
+                        .addComponent(jButtonCancelar)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,7 +133,11 @@ public class JDialogCadastrodeHorario extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHorario)
                     .addComponent(jFormattedTextHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConfirmar)
+                    .addComponent(jButtonCancelar))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -115,6 +146,30 @@ public class JDialogCadastrodeHorario extends javax.swing.JDialog {
 private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextMatriculaActionPerformed
+
+private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+// TODO add your handling code here:
+    int n= JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar horarios: ");
+    if (n == 0){
+        try {
+            addHorario();
+            
+        }catch (Exception ex){
+         //    Logger.getLogger(JDialogCadastrodeHorario.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        JOptionPane.showMessageDialog(rootPane, "Horario" +jTextNome.getText()+"Cadastrado");
+        dispose();
+    }
+    
+    
+    
+}//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+// TODO add your handling code here:
+    dispose();
+}//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +215,8 @@ private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GE
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JFormattedTextField jFormattedTextHorario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelControleHorario;
@@ -169,4 +226,10 @@ private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JTextField jTextMatricula;
     private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
-}
+
+  
+        
+        
+      //  throw new UnsupportedOperationException("Not yet implemented");
+    }
+
