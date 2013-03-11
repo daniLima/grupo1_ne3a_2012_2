@@ -27,7 +27,7 @@ public class Sql {
         try {
 
 
-            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereço,bairro,telefone,cidade,email) Values (?, ?, ?, ?, ?, ?, ?, ?";
+            String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?, ?, ?, ?, ?, ?, ?, ?)";
 
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
@@ -39,6 +39,7 @@ public class Sql {
             pst.setString(6, telefone);
             pst.setString(7, cidade);
             pst.setString(8, email);
+            pst.execute();
 
             con.commit();
 
@@ -111,6 +112,6 @@ public class Sql {
     }
 
     public static void main(String[] args) {
-        buscarCliente(" ");
+//        buscarCliente(" ");
     }
 }

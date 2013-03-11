@@ -29,7 +29,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         
     }
     
-    private Conexao conexao=new Conexao();
+//    private Conexao conexao=new Conexao();
     
     public JDialogCadastroCliente() {
          initComponents ();
@@ -82,7 +82,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18));
+        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Cadastro_cliente.setText("Cadastro Cliente:");
         getContentPane().add(Cadastro_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
