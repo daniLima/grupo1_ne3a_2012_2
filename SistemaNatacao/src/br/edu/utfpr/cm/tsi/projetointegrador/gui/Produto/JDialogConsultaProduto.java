@@ -10,12 +10,12 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
-
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,8 +26,6 @@ import javax.swing.table.DefaultTableModel;
 public class JDialogConsultaProduto extends javax.swing.JDialog {
 
     DefaultTableModel model;
-    
-   
 
     /**
      * Creates new form JDialogConsultaProduto
@@ -55,6 +53,7 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
         jButtonOK = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButtonVisualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,6 +91,13 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
 
         jScrollPane1.setViewportView(jTable1);
 
+        jButtonVisualizar.setText("Visualizar");
+        jButtonVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVisualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,13 +105,15 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jButtonOK, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVisualizar)
+                .addGap(101, 101, 101)
                 .addComponent(jButtonExcluir)
                 .addGap(61, 61, 61))
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(10, 15, Short.MAX_VALUE)
+                    .addGap(10, 24, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1)
                         .addGroup(layout.createSequentialGroup()
@@ -114,17 +122,18 @@ public class JDialogConsultaProduto extends javax.swing.JDialog {
                             .addComponent(codigoJtext, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(jButton3)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(19, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonOK)
-                    .addComponent(jButtonExcluir))
+                    .addComponent(jButtonExcluir)
+                    .addComponent(jButtonVisualizar))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -146,12 +155,28 @@ private void codigoJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 }//GEN-LAST:event_codigoJtextActionPerformed
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+int n = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir");
+    if (n == 0) {
+        try {
+            Sql.excluiProduto(Integer.parseInt(codigoJtext.getText()));
 
-    dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(JDialogVisualizarProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(rootPane, "Produto Excluido");
+        
+    }
+    
 }//GEN-LAST:event_jButtonExcluirActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+//    boolean n;
+//    do{
         preenchetabela();
+//        if (n == false) {
+//            JOptionPane.showMessageDialog(rootPane, "Digite um codigo Valido");
+//        }
+//    }while(n!=false);
     // TODO add your handling code here:
 //        String pesquisa = nome.getText();
 //        String pesquisa1 = control.pesquisaPessoa.pesquisa(pesquisa);
@@ -162,6 +187,11 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
     dispose();
 }//GEN-LAST:event_jButtonOKActionPerformed
+
+    private void jButtonVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisualizarActionPerformed
+        new JDialogVisualizarProduto(Integer.parseInt(codigoJtext.getText())).setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVisualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +239,7 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonOK;
+    private javax.swing.JButton jButtonVisualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -225,22 +256,22 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         jTable1.setModel(model);
     }
 
-    private void preenchetabela() {
+    private boolean preenchetabela() {
 //        EntidadeProduto produto = new EntidadeProduto();
         model.setNumRows(0);
 //            pesquisaProduto.pesquisa(Integer.parseInt(codigoJtext.getText()));
-            
+
 //            System.out.println("antes do try ===>>cod " + produto.getCodigo() + " nome: " + produto.getNome());
-            
-            Connection con = new ConnectionManager().Conexao();
+
+        Connection con = new ConnectionManager().Conexao();
         try {
-            
-            
+
+
             DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
 
-            
-            
-            
+
+
+
 
 
             String sql = "SELECT * FROM produto WHERE produto.codigo like '" + Integer.parseInt(codigoJtext.getText()) + "';";
@@ -249,60 +280,30 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                
-               
-                
+
+
+
 //                p.setCodigo(rs.getInt("codigo"));
 //                p.setDescricao(rs.getString("descricao"));
 //                p.setNome(rs.getString("nome"));
 //                p.setQuantidade(rs.getString("quantidade"));
 //                p.setObservacoes(rs.getString("observacao"));
-            tableModel.addRow(new Object[]{rs.getInt("codigo"), rs.getString("nome"),rs.getString("descricao"),
-                    rs.getString("quantidade"), rs.getString("observacao")});
-            jTable1.setModel(tableModel);
-            
+                tableModel.addRow(new Object[]{rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
+                            rs.getString("quantidade"), rs.getString("observacao")});
+                jTable1.setModel(tableModel);
+
                 con.close();
 
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro na busca do banco");
+            return false;
 
         }
-    
-    }
-    
-    public static void pesquisa(int id) {
-        
-        
-//        try {
-//            Connection con = new ConnectionManager().Conexao();
-//
-//
-//            String sql = "SELECT * FROM produto WHERE produto.codigo like '" + id + "';";
-//
-//            PreparedStatement pst = con.prepareStatement(sql);
-//
-//            ResultSet rs = pst.executeQuery();
-//            if (rs.next()) {
-//                
-//               
-//                
-//                p.setCodigo(rs.getInt("codigo"));
-//                p.setDescricao(rs.getString("descricao"));
-//                p.setNome(rs.getString("nome"));
-//                p.setQuantidade(rs.getString("quantidade"));
-//                p.setObservacoes(rs.getString("observacao"));
-//                con.close();
-//
-//
-//            }
-//
-//        } catch (SQLException ex) {
-////            Logger.getLogger(DAOPessoaFisica.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
+        return true;
 
     }
+
+    
 }
-

@@ -5,9 +5,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Produto;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-import java.awt.List;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +46,7 @@ public class Sql {
 
     }
 
-    public static boolean excluiProduto(String codigo) throws Exception {
+    public static boolean excluiProduto(int codigo) throws Exception {
 
 
 
@@ -57,7 +55,7 @@ public class Sql {
 //            
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, codigo);
+            pst.setInt(1, codigo);
             pst.execute();
             con.commit();
 
@@ -70,16 +68,15 @@ public class Sql {
     }
     
     
-    public static boolean buscarProduto(String codigo){
+    public static boolean buscarProduto(int codigo){
       
-        Connection con = new ConnectionManager().Conexao();
    
  try {
             String sql = "SELECT * FROM produto where codigo = ?";
 //            
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, codigo);  
+            pst.setInt(1, codigo);  
             pst.execute();
             con.commit();
             
@@ -96,6 +93,10 @@ public class Sql {
     }
     
     public static void main(String[] args) {
-        buscarProduto("");
+        try {
+            excluiProduto(55);
+        } catch (Exception ex) {
+            Logger.getLogger(Sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
