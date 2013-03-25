@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import views.GenericView;
 
 /**
  *
@@ -189,8 +190,11 @@ private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_jButtonOKActionPerformed
 
     private void jButtonVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisualizarActionPerformed
-        new JDialogVisualizarProduto(Integer.parseInt(codigoJtext.getText())).setVisible(true);
+//        new JDialogVisualizarProduto(Integer.parseInt(codigoJtext.getText())).setVisible(true);
         // TODO add your handling code here:
+
+        EntidadeProduto ep = new EntidadeProduto();
+               GenericView.showObject(ep);
     }//GEN-LAST:event_jButtonVisualizarActionPerformed
 
     /**
