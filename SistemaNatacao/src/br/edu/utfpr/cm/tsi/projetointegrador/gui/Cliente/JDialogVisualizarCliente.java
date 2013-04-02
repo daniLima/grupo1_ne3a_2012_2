@@ -13,6 +13,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.Cliente;
 
 /**
  *
@@ -32,16 +33,22 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
       //  initComponents();
    // }
 
-   public JDialogVisualizarCliente(int ClienteId){
+   public JDialogVisualizarCliente(){
        setLocation(250,100);
+       this.setLocationRelativeTo(null);
        initComponents();
    }
        
        
-   private JDialogVisualizarCliente( ) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
+ //  private JDialogVisualizarCliente( ) {
+   //     throw new UnsupportedOperationException("Not yet implemented");
+   // }
+     public void cliente(Cliente cliente){
+     jTextMatricula.setText(cliente.getMatricula());
+     jTextFieldNome.setText(cliente.getNome());
+     jTextFieldEndereço.setText(cliente.getEndereco());
+     jFormattedTextFieldTelefone.setText(cliente.getTelefone());
+}
    
   //  }
 
@@ -70,7 +77,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18));
+        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         VisualizaCliente.setText("Visualizar Cliente");
         getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -216,6 +223,7 @@ private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEve
 
             public void run() {
                 JDialogVisualizarCliente dialog = new JDialogVisualizarCliente();
+                
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
