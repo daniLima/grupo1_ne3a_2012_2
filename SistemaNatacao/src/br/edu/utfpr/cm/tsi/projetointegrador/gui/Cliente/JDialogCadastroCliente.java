@@ -203,18 +203,29 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+       Cliente cliente=new Cliente();
+       
+       cliente.setMatricula(jTextMatricula.getText());
+       cliente.setNome(jTextNome.getText());
+       cliente.setCPF(jFormattedTextCPF.getText());
+       cliente.setEndereco(jTextEndereco.getText());
+       cliente.setBairro(jTextBairro.getText());
+       cliente.setTelefone(jFormattedTextTelefone.getText());
+       cliente.setCidade(jTextCidade.getText());
+       cliente.setEmail(jTextEmail.getText());       
        
     int pos=JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar o cliente:  "  +jTextNome.getText()+"?");
     if(pos == 0){
         try {
-            Sql.addCliente(jTextMatricula.getText(),
-                           jTextNome.getText(),
-                           jFormattedTextCPF.getText(),
-                           jTextEndereco.getText(),
-                           jTextBairro.getText(),
-                           jFormattedTextTelefone.getText(),
-                           jTextCidade.getText(),
-                           jTextEmail.getText());               
+            Sql.addCliente(cliente);
+        //    Sql.addCliente(jTextMatricula.getText(),
+          //                 jTextNome.getText(),
+            //               jFormattedTextCPF.getText(),
+              //             jTextEndereco.getText(),
+                //           jTextBairro.getText(),
+                  //         jFormattedTextTelefone.getText(),
+                    //       jTextCidade.getText(),
+                    //       jTextEmail.getText());               
         } catch (Exception ex){
             Logger.getLogger(JDialogCadastroCliente.class.getName()).log(Level.SEVERE,null, ex);
         }
@@ -225,7 +236,11 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
       //          jTextEndereco.getText(),jTextBairro.getText(),jFormattedTextTelefone.getText(),
         //        jTextCidade.getText(),jTextEmail.getText());
         
-        new JDialogVisualizarCliente(clienteId).setVisible(true);
+     //   new JDialogVisualizarCliente(clienteId).setVisible(true);
+        
+        JDialogVisualizarCliente visualizar = new JDialogVisualizarCliente();
+        visualizar.cliente(cliente);
+        visualizar.setVisible(true);
         }
     
     else if(pos==2){
