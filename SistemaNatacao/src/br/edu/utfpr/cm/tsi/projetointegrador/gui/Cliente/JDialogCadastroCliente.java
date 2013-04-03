@@ -217,7 +217,7 @@ private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//
     int pos=JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar o cliente:  "  +jTextNome.getText()+"?");
     if(pos == 0){
         try {
-            Sql.addCliente(cliente);
+           Sql.addCliente(cliente);
         //    Sql.addCliente(jTextMatricula.getText(),
           //                 jTextNome.getText(),
             //               jFormattedTextCPF.getText(),
