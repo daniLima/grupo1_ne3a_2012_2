@@ -82,8 +82,9 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Cadastro_cliente.setText("Cadastro Cliente:");
+        Cadastro_cliente.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Cadastro_cliente.setForeground(new java.awt.Color(51, 0, 204));
+        Cadastro_cliente.setText("Cadastro de Cliente:");
         getContentPane().add(Cadastro_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jLabel1Telefone.setText("Telefone:");
@@ -105,11 +106,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
 
-        try {
-            jFormattedTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jFormattedTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         jFormattedTextTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextTelefoneActionPerformed(evt);
@@ -179,11 +176,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
         jLabel1.setText("CPF:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 50, -1));
 
-        try {
-            jFormattedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jFormattedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         jFormattedTextCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextCPFActionPerformed(evt);
