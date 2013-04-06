@@ -4,6 +4,10 @@
  */
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Daniele
@@ -143,6 +147,24 @@ public class JDialogCadastrodeHorarios extends javax.swing.JDialog {
         horario.setTelefone(jFormattedTelefone.getText());
         horario.setHorario(jFormattedHorario.getText());
         
+        
+        int pos= JOptionPane.showConfirmDialog(rootPane, "Deseja Cadastrar Horário :"+jLabelNome.getText()+"?");
+        if(pos==0){
+            try{
+                Sql.addHorario(horario);
+            }catch(Exception ex){
+                Logger.getLogger(JDialogCadastrodeHorarios.class.getName()).log(Level.SEVERE, null,ex);
+            }
+            JOptionPane.showMessageDialog(rootPane,"Horário"+jTextNome.getText()+ "\n Cadastrato com sucesso!" );
+           String nomeCliente=jLabelNome.getText();
+           dispose();
+           
+           
+           JDialogVisualizarHorario visualizar=new JDialogVisualizarHorario();
+           visualizar.horario(horario);
+           visualizar.setVisible(true);
+           
+        }
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
