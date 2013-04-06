@@ -77,9 +77,10 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        VisualizaCliente.setText("Visualizar Cliente");
-        getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        VisualizaCliente.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        VisualizaCliente.setForeground(new java.awt.Color(51, 0, 204));
+        VisualizaCliente.setText("Visualizar Cliente:");
+        getContentPane().add(VisualizaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 240, -1));
 
         jTextFieldEndereço.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

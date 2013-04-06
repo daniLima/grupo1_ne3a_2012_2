@@ -5,7 +5,7 @@
 package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 
 import br.edu.utfpr.cm.tsi.projetointegrador.coneccao.ConnectionManager;
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorario;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorarios;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -86,25 +86,7 @@ public class Sql {
 
     }
 
-    public static boolean addHorario(String matricula, String nome, String horario) throws Exception {
-
-        try {
-            String sql = "INSERT INTO horario ( matricula, nome,horario)Values (?, ?,?)";
-
-            con.setAutoCommit(false);
-            java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, matricula);
-            pst.setString(2, nome);
-            pst.setString(3, horario);
-
-            con.commit();
-        } catch (SQLException ex) {
-            Logger.getLogger(JDialogCadastrodeHorario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return true;
-    }
-
+   
     public static void main(String[] args) {
 //        buscarCliente(" ");
     }

@@ -16,7 +16,7 @@ import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogCadastroCliente;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.JDialogClienteMenu;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario.JDialogCadastroFuncionario;
 import br.edu.utfpr.cm.tsi.projetointegrador.gui.Funcionario.JDialogFuncionarioMenu;
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorario;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario.JDialogCadastrodeHorarios;
 
 
 
@@ -246,6 +246,11 @@ public class Principal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 CadastroButMouseExited(evt);
+            }
+        });
+        CadastroBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastroButActionPerformed(evt);
             }
         });
 
@@ -530,7 +535,7 @@ private void FuncionarioConsButActionPerformed(java.awt.event.ActionEvent evt) {
 }//GEN-LAST:event_FuncionarioConsButActionPerformed
 
 private void HorarioCadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorarioCadButActionPerformed
-//    new JDialogCadastrodeHorario.setVisible(true);
+       new JDialogCadastrodeHorarios().setVisible(true);
     // TODO add your handling code here:
 }//GEN-LAST:event_HorarioCadButActionPerformed
 
@@ -623,6 +628,10 @@ private void AjudabutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:ev
     jLabelStatus.setText((Ajudabut.getToolTipText()));
     // TODO add your handling code here:
 }//GEN-LAST:event_AjudabutMouseEntered
+
+    private void CadastroButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CadastroButActionPerformed
 
     /**
      * @param args the command line arguments
