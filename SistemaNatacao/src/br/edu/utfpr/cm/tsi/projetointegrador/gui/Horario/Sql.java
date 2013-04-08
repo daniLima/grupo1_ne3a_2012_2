@@ -42,7 +42,7 @@ public class Sql {
         return true;
     }
          
-        public static boolean excluirHorario(Horario horario) throws Exception {
+        public static boolean excluirHorario(String nome) throws Exception {
         try {
 
             String sql = "DELETE FROM horario where nome = ?";
@@ -53,7 +53,7 @@ public class Sql {
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
 
 
-            pst.setString(1,horario.getNome());
+            pst.setString(1,nome);
             pst.execute();
             con.commit();
 
@@ -63,7 +63,7 @@ public class Sql {
         return true;
     }
 
-    public static boolean buscarHorario(Horario horario) {
+    public static boolean buscarHorario(String nome) {
 
 
         Connection con = new ConnectionManager().Conexao();
@@ -73,7 +73,7 @@ public class Sql {
             String sql = "SELECT * FROM horario where nome = ? ";
             con.setAutoCommit(false);
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,horario.getNome());
+            pst.setString(1, nome);
             pst.execute();
             con.commit();
 

@@ -155,8 +155,6 @@ private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
            dispose();
           // new JDialogConsultaCliente().setVisible(true);
        }
-    
-    
 }//GEN-LAST:event_jButtonEditarActionPerformed
 
 private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
