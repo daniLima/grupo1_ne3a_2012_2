@@ -18,6 +18,10 @@ public class JDialogVisualizarHorario extends javax.swing.JDialog {
         initComponents();
     }
 
+    JDialogVisualizarHorario() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,4 +185,8 @@ public class JDialogVisualizarHorario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    void horario(Horario horario) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 }
