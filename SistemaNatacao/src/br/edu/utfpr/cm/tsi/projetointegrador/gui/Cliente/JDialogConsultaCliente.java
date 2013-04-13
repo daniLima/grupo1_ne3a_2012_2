@@ -61,9 +61,10 @@ public class JDialogConsultaCliente extends javax.swing.JDialog {
         setName("Consulta Clientes"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ConsultaClientes.setFont(new java.awt.Font("Tahoma", 1, 18));
-        ConsultaClientes.setText("Consulta Clientes");
-        getContentPane().add(ConsultaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        ConsultaClientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ConsultaClientes.setForeground(new java.awt.Color(0, 51, 204));
+        ConsultaClientes.setText("Consulta Clientes:");
+        getContentPane().add(ConsultaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 230, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 0));
 
         jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
