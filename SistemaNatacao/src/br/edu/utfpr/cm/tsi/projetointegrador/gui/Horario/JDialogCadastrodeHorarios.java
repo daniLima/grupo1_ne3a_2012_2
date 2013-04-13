@@ -142,7 +142,7 @@ public class JDialogCadastrodeHorarios extends javax.swing.JDialog {
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
-        Horario horario = new Horario();
+        EntidadeHorario horario = new EntidadeHorario();
         horario.setNome(jLabelNome.getText());
         horario.setTelefone(jFormattedTelefone.getText());
         horario.setHorario(jFormattedHorario.getText());

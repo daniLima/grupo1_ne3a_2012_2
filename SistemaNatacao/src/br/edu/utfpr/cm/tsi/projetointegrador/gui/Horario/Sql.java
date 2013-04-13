@@ -21,7 +21,7 @@ public class Sql {
         //throw new UnsupportedOperationException("Not yet implemented");
     static  Connection con = new ConnectionManager().Conexao();
       
-         public static boolean addHorario(Horario horario){        
+         public static boolean addHorario(EntidadeHorario horario){        
          String sql="INSERT INTO horario(nome,horario,telefone) Values(?,?,?)";
 
         try {         

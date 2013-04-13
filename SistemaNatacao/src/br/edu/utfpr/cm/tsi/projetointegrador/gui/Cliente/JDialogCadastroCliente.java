@@ -204,7 +204,7 @@ public class JDialogCadastroCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-       Cliente cliente=new Cliente();
+       EntidadeCliente cliente=new EntidadeCliente();
        
        cliente.setMatricula(jTextMatricula.getText());
        cliente.setNome(jTextNome.getText());

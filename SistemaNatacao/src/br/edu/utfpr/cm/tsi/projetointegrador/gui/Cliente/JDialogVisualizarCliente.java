@@ -13,7 +13,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.Cliente;
+import br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente.EntidadeCliente;
 
 /**
  *
@@ -43,7 +43,7 @@ public class JDialogVisualizarCliente extends javax.swing.JDialog {
  //  private JDialogVisualizarCliente( ) {
    //     throw new UnsupportedOperationException("Not yet implemented");
    // }
-     public void cliente(Cliente cliente){
+     public void cliente(EntidadeCliente cliente){
      jTextMatricula.setText(cliente.getMatricula());
      jTextFieldNome.setText(cliente.getNome());
      jTextFieldEndereço.setText(cliente.getEndereco());

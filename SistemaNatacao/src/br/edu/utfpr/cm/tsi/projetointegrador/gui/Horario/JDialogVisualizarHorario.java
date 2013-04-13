@@ -27,7 +27,7 @@ public class JDialogVisualizarHorario extends javax.swing.JDialog {
     }
      
     
-    public void horario(Horario horario){
+    public void horario(EntidadeHorario horario){
         jTextNome.setText(horario.getNome());
         jFormattedHorario.setText(horario.getHorario());
     }

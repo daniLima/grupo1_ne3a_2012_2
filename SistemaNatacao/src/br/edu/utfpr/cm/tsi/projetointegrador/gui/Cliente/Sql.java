@@ -19,7 +19,7 @@ public class Sql {
 
     static Connection con = new ConnectionManager().Conexao();
 
-    public static boolean addCliente(Cliente cliente){
+    public static boolean addCliente(EntidadeCliente cliente){
     String sql = "INSERT INTO cliente(matricula,nome,cpf,endereco,bairro,telefone,cidade,email) Values (?, ?, ?, ?, ?, ?, ?, ?)";
      try{
          

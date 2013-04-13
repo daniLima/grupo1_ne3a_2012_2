@@ -8,7 +8,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Horario;
  *
  * @author Daniele
  */
-public class Horario {
+public class EntidadeHorario {
     String nome;
     String telefone;
     String horario;

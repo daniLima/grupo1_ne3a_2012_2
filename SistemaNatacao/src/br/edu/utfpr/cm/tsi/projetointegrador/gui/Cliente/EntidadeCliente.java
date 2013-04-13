@@ -8,7 +8,7 @@ package br.edu.utfpr.cm.tsi.projetointegrador.gui.Cliente;
  *
  * @author Daniele
  */
-public class Cliente {
+public class EntidadeCliente {
     String matricula;
     String nome;
     String CPF;
