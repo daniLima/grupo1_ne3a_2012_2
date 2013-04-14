@@ -21,7 +21,7 @@ public interface Dao<T> {
     
     Class getClassForEntity();
     
-    DaoGenerico<T> getDao();
+    DaoBasic<T> getDao();
     
     List<T> list(Object value,String...fields);
     
